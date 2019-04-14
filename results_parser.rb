@@ -128,8 +128,19 @@ def all_results
         result[symbol_item][:problems] = problem_counter
         result[symbol_item][:goals_avg] = goals.to_f/problem_counter
         result[symbol_item][:landmarks_avg] = landmarks.to_f/problem_counter
+        result[symbol_item][:observations] = {}
+
         percentages.each do |p|
-            result[symbol_item][:observations][p] = observations[p].to_f/problem_counter
+            result[symbol_item][:observations][p] = {}
+            thresholds.each do |t|
+                result[symbol_item][:observations][p][:uniqueness] = {}
+                result[symbol_item][:observations][p][:uniqueness][:time] = {}
+                result[symbol_item][:observations][p][:uniqueness][:accuracy] = {}
+            end
+        end
+
+        percentages.each do |p|
+            result[symbol_item][:observations][p][:observations_avg] = observations[p].to_f/problem_counter
             thresholds.each do |t|
                 result[symbol_item][:observations][p][:uniqueness][:time][t] = (((seconds[p][t].to_f/problem_counter)*1000).floor)/1000.0
                 result[symbol_item][:observations][p][:uniqueness][:accuracy][t] = (accuracy[p][t].to_f/problem_counter) * 100.0
