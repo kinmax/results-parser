@@ -1,0 +1,10 @@
+rm -rf domain.pddl template.pddl templateInitial.pddl obs.dat hyps.dat plan.png real_hyp.dat
+tar -jxvf /home/kingusmao/grupo/goal-plan-recognition-dataset/dwr/dwr_p04_hyp-3_50_2.tar.bz2
+Parsed Domain file domain.pddl successfully
+Parsed Problem file templateInitial.pddl successfully
+
+Grounding...
+
+real	0m0,437s
+user	0m0,516s
+sys	0m0,095s
