@@ -85,44 +85,52 @@ def all_results
                 next
             end
 
-            tar_path = "#{dataset_path}/#{item}/#{tar}"
+            begin
 
-            problem_counter = problem_counter + 1
+                tar_path = "#{dataset_path}/#{item}/#{tar}"
 
-            tmp = tar.split("_")
-            if tmp.last.include?("full")
-                percentual_observed = 100
-            else
-                tmp.pop
-                percentual_observed = tmp.last.to_i
-            end            
-            
-            thresholds.each do |tr|
-                #FILTER
-                run_type = "-filter"
-                cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
-                system(cmd)
-                single_result_f = parse_filter
-                goals += single_result_f[:goals]
-                landmarks += single_result_f[:landmarks]
-                observations[percentual_observed.to_s] += single_result_f[:observations]
-    
-                #GOAL COMPLETION
-                run_type = "-goalcompletion"
-                cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
-                system(cmd)
-                single_result_gc = get_heuristic_correctness_and_time
-                seconds[percentual_observed.to_s][tr] += single_result_gc[:seconds]
-                accuracy[percentual_observed.to_s][tr] += single_result_gc[:correct]
-    
-                #LANDMARK UNIQUENESS
-                run_type = "-uniqueness"
-                cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
-                system(cmd)
-                single_result_u = get_heuristic_correctness_and_time
-                seconds[percentual_observed.to_s][tr] += single_result_u[:seconds]
-                accuracy[percentual_observed.to_s][tr] += single_result_u[:correct]
-            end 
+                problem_counter = problem_counter + 1
+
+                tmp = tar.split("_")
+                if tmp.last.include?("full")
+                    percentual_observed = 100
+                else
+                    tmp.pop
+                    percentual_observed = tmp.last.to_i
+                end            
+                
+                thresholds.each do |tr|
+                    #FILTER
+                    run_type = "-filter"
+                    cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
+                    system(cmd)
+                    single_result_f = parse_filter
+                    goals += single_result_f[:goals]
+                    landmarks += single_result_f[:landmarks]
+                    observations[percentual_observed.to_s] += single_result_f[:observations]
+        
+                    #GOAL COMPLETION
+                    run_type = "-goalcompletion"
+                    cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
+                    system(cmd)
+                    single_result_gc = get_heuristic_correctness_and_time
+                    seconds[percentual_observed.to_s][tr] += single_result_gc[:seconds]
+                    accuracy[percentual_observed.to_s][tr] += single_result_gc[:correct]
+        
+                    #LANDMARK UNIQUENESS
+                    run_type = "-uniqueness"
+                    cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
+                    system(cmd)
+                    single_result_u = get_heuristic_correctness_and_time
+                    seconds[percentual_observed.to_s][tr] += single_result_u[:seconds]
+                    accuracy[percentual_observed.to_s][tr] += single_result_u[:correct]
+                end
+            rescue
+                puts "Erro: "
+                puts single_result_f
+                puts single_result_gc
+                puts single_result_u
+            end
         end
         
         result[symbol_item][:problems] = problem_counter
