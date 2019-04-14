@@ -5,7 +5,7 @@ def parse_filter
     file_path = File.join(File.dirname(__FILE__), 'res.txt')
     file = File.open(file_path, 'r')
     raw = file.read
-    file.close
+    #file.close
 
     obs = raw.split("# Observations")[1].split("--->")[0].split(">$").size - 1
     goals = raw.split("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$").last.split("$>").size - 1
@@ -15,9 +15,9 @@ def parse_filter
     landmarks.push(landmarks_last)
     land_count = 0
     landmarks.each do |goal|
-        goal.split("Amount of Fact Landmarks: ")[1].split(".").first.to_i
+        land_count += goal.split("Amount of Fact Landmarks: ")[1].split(".").first.to_i
     end
-    land_count = land_count/goals
+    land_count = land_count.to_f/(raw.scan(/--->/).count)
 
     results = {}
     results[:observations] = obs
@@ -144,5 +144,5 @@ def analyse
     File.write(results, output_path)
 end
 
-all_results
+analyse
 
