@@ -90,7 +90,7 @@ def all_results
             problem_counter = problem_counter + 1
 
             tmp = tar.split("_")
-            if tmp.last == "full"
+            if tmp.last.include?("full")
                 percentual_observed = 100
             else
                 tmp.pop
