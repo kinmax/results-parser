@@ -74,7 +74,7 @@ def all_results
     end
     
     Dir.foreach(dataset_path) do |item|
-        if item == "." || item == ".." || item == "README.md" || item == "zenodo.json" || item == ".git" || item.include?("noisy")
+        if item == "." || item == ".." || item == "README.md" || item == ".zenodo.json" || item == ".git" || item.include?("noisy")
             next
         end
         symbol_item = item.gsub("-", "_").to_sym
