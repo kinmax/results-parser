@@ -51,7 +51,7 @@ end
 
 def all_results
     dataset_path = "/home/kingusmao/grupo/goal-plan-recognition-dataset"
-    res_path = "/home/kingusmao/grupo/res.txt"
+    res_path = "/home/kingusmao/grupo/results-parser/res.txt"
     jar_path = "/home/kingusmao/grupo/Landmark-Based-GoalRecognition/goalrecognizer1.1.jar"
     java_path = "/usr/bin/java"
     run_path = "./run.sh"
