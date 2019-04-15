@@ -126,10 +126,7 @@ def all_results
                     accuracy[percentual_observed.to_s][tr] += single_result_u[:correct]
                 end
             rescue
-                puts "Erro: "
-                puts single_result_f
-                puts single_result_gc
-                puts single_result_u
+                puts "Erro"
             end
         end
         
