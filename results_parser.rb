@@ -5,10 +5,10 @@ def parse_filter
     file_path = File.join(File.dirname(__FILE__), 'res.txt')
     file = File.open(file_path, 'r')
     raw = file.read
-    #file.close
+    file.close
 
     obs = raw.split("# Observations")[1].split("--->")[0].split(">$").size - 1
-    goals = raw.split("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$").last.split("$>").size - 1
+    goals = raw.scan(/--->/).count
     landmarks = raw.split("--->").drop(1)    
     landmarks_last = landmarks.last.split("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$").first
     landmarks.pop
@@ -31,20 +31,22 @@ def get_heuristic_correctness_and_time
     file_path = File.join(File.dirname(__FILE__), 'res.txt')
     file = File.open(file_path, 'r')
     raw = file.read
+    file.close
 
     correctness = raw.split("<?>").last.split("?").last.include?("true")
-    file.close
     time = raw.split("<?>").last.split(correctness.to_s).last.split("\n\n").last.split("real").last.split("\n").first.split("\t").last
     minutes = time.split("m").first.to_i
     seconds = time.split("m").last.split("s").first.split(",").first.to_i
     miliseconds = time.split("m").last.split("s").first.split(",").last.to_i
     seconds = seconds + (miliseconds * 0.001)
     seconds = ((seconds * 1000).floor)/1000.0
+    rec_goals = raw.split("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$").last.scan("$>").count - 1
 
     result = {}
     result[:correct] = correctness ? 1 : 0
     result[:minutes] = minutes
     result[:seconds] = seconds
+    result[:recognized_goals] = rec_goals
 
     result
 end
@@ -77,6 +79,7 @@ def all_results
         if item == "." || item == ".." || item == "README.md" || item == ".zenodo.json" || item == ".git" || item.include?("noisy")
             next
         end
+        puts item
         symbol_item = item.gsub("-", "_").to_sym
         result[symbol_item] = {}
         problem_counter = 0
@@ -84,9 +87,9 @@ def all_results
             if tar == "." || tar == ".." || tar == "README.md" || tar == ".gitignore" || tar.include?("FILTERED")
                 next
             end
+            puts tar
 
             begin
-
                 tar_path = "#{dataset_path}/#{item}/#{tar}"
 
                 problem_counter = problem_counter + 1
@@ -101,13 +104,15 @@ def all_results
                 
                 thresholds.each do |tr|
                     #FILTER
-                    run_type = "-filter"
-                    cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
-                    system(cmd)
-                    single_result_f = parse_filter
-                    goals += single_result_f[:goals]
-                    landmarks += single_result_f[:landmarks]
-                    observations[percentual_observed.to_s] += single_result_f[:observations]
+                    if tr == "0" # so it only runs once per file
+                        run_type = "-filter"
+                        cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
+                        system(cmd)
+                        single_result_f = parse_filter
+                        goals += single_result_f[:goals]
+                        landmarks += single_result_f[:landmarks]
+                        observations[percentual_observed.to_s] += single_result_f[:observations]
+                    end
         
                     #GOAL COMPLETION
                     run_type = "-goalcompletion"
@@ -125,32 +130,38 @@ def all_results
                     seconds[percentual_observed.to_s][tr] += single_result_u[:seconds]
                     accuracy[percentual_observed.to_s][tr] += single_result_u[:correct]
                 end
-            rescue
-                puts "Erro"
+            rescue StandardError => e
+                puts e
             end
+        end
+
+        begin
+            result[symbol_item][:problems] = problem_counter
+            result[symbol_item][:goals_avg] = goals.to_f/problem_counter
+            result[symbol_item][:landmarks_avg] = landmarks.to_f/problem_counter
+            result[symbol_item][:observations] = {}
+
+            percentages.each do |p|
+                result[symbol_item][:observations][p] = {}
+                thresholds.each do |t|
+                    result[symbol_item][:observations][p][:uniqueness] = {}
+                    result[symbol_item][:observations][p][:uniqueness][:time] = {}
+                    result[symbol_item][:observations][p][:uniqueness][:accuracy] = {}
+                end
+            end
+
+            percentages.each do |p|
+                result[symbol_item][:observations][p][:observations_avg] = observations[p].to_f/problem_counter
+                thresholds.each do |t|
+                    result[symbol_item][:observations][p][:uniqueness][:time][t] = (((seconds[p][t].to_f/problem_counter)*1000).floor)/1000.0
+                    result[symbol_item][:observations][p][:uniqueness][:accuracy][t] = (accuracy[p][t].to_f/problem_counter) * 100.0
+                end
+            end
+        rescue StandardError => e
+            puts e
         end
         
-        result[symbol_item][:problems] = problem_counter
-        result[symbol_item][:goals_avg] = goals.to_f/problem_counter
-        result[symbol_item][:landmarks_avg] = landmarks.to_f/problem_counter
-        result[symbol_item][:observations] = {}
-
-        percentages.each do |p|
-            result[symbol_item][:observations][p] = {}
-            thresholds.each do |t|
-                result[symbol_item][:observations][p][:uniqueness] = {}
-                result[symbol_item][:observations][p][:uniqueness][:time] = {}
-                result[symbol_item][:observations][p][:uniqueness][:accuracy] = {}
-            end
-        end
-
-        percentages.each do |p|
-            result[symbol_item][:observations][p][:observations_avg] = observations[p].to_f/problem_counter
-            thresholds.each do |t|
-                result[symbol_item][:observations][p][:uniqueness][:time][t] = (((seconds[p][t].to_f/problem_counter)*1000).floor)/1000.0
-                result[symbol_item][:observations][p][:uniqueness][:accuracy][t] = (accuracy[p][t].to_f/problem_counter) * 100.0
-            end
-        end
+        
     end
 end
 
