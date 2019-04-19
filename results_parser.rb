@@ -7,6 +7,8 @@ def parse_filter
     raw = file.read
     file.close
 
+    
+
     obs = raw.split("# Observations")[1].split("--->")[0].split(">$").size - 1
     goals = raw.scan(/--->/).count
     landmarks = raw.split("--->").drop(1)    
@@ -40,7 +42,7 @@ def get_heuristic_correctness_and_time
     miliseconds = time.split("m").last.split("s").first.split(",").last.to_i
     seconds = seconds + (miliseconds * 0.001)
     seconds = ((seconds * 1000).floor)/1000.0
-    rec_goals = raw.split("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$").last.scan("$>").count - 1
+    rec_goals = raw.split("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$").last.scan("$>").count - 1
 
     result = {}
     result[:correct] = correctness ? 1 : 0
@@ -69,9 +71,15 @@ def all_results
         observations[p] = 0
         seconds[p] = {}
         accuracy[p] = {}
+        seconds[p][:goalcompletion] = {}
+        accuracy[p][:goalcompletion] = {}
+        seconds[p][:uniqueness] = {}
+        accuracy[p][:uniqueness] = {}
         thresholds.each do |t|
-            seconds[p][t] = 0
-            accuracy[p][t] = 0
+            seconds[p][:goalcompletion][t] = 0
+            accuracy[p][:goalcompletion][t] = 0
+            seconds[p][:uniqueness][t] = 0
+            accuracy[p][:uniqueness][t] = 0
         end
     end
     
@@ -95,12 +103,14 @@ def all_results
                 problem_counter = problem_counter + 1
 
                 tmp = tar.split("_")
-                if tmp.last.include?("full")
+                if tar.include?("full")
                     percentual_observed = 100
                 else
                     tmp.pop
                     percentual_observed = tmp.last.to_i
-                end            
+                end 
+                
+                
                 
                 thresholds.each do |tr|
                     #FILTER
@@ -119,23 +129,25 @@ def all_results
                     cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
                     system(cmd)
                     single_result_gc = get_heuristic_correctness_and_time
-                    seconds[percentual_observed.to_s][tr] += single_result_gc[:seconds]
-                    accuracy[percentual_observed.to_s][tr] += single_result_gc[:correct]
+                    seconds[percentual_observed.to_s][:goalcompletion][tr] += single_result_gc[:seconds]
+                    accuracy[percentual_observed.to_s][:goalcompletion][tr] += single_result_gc[:correct]
         
                     #LANDMARK UNIQUENESS
                     run_type = "-uniqueness"
                     cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
                     system(cmd)
                     single_result_u = get_heuristic_correctness_and_time
-                    seconds[percentual_observed.to_s][tr] += single_result_u[:seconds]
-                    accuracy[percentual_observed.to_s][tr] += single_result_u[:correct]
+                    seconds[percentual_observed.to_s][:uniqueness][tr] += single_result_u[:seconds]
+                    accuracy[percentual_observed.to_s][:uniqueness][tr] += single_result_u[:correct]
                 end
             rescue StandardError => e
-                puts e
+                puts e.backtrace
             end
         end
 
         begin
+            
+
             result[symbol_item][:problems] = problem_counter
             result[symbol_item][:goals_avg] = goals.to_f/problem_counter
             result[symbol_item][:landmarks_avg] = landmarks.to_f/problem_counter
@@ -143,32 +155,37 @@ def all_results
 
             percentages.each do |p|
                 result[symbol_item][:observations][p] = {}
+                result[symbol_item][:observations][p][:uniqueness] = {}
+                result[symbol_item][:observations][p][:goalcompletion] = {}
                 thresholds.each do |t|
-                    result[symbol_item][:observations][p][:uniqueness] = {}
                     result[symbol_item][:observations][p][:uniqueness][:time] = {}
                     result[symbol_item][:observations][p][:uniqueness][:accuracy] = {}
+                    result[symbol_item][:observations][p][:goalcompletion][:time] = {}
+                    result[symbol_item][:observations][p][:goalcompletion][:accuracy] = {}
                 end
             end
 
             percentages.each do |p|
                 result[symbol_item][:observations][p][:observations_avg] = observations[p].to_f/problem_counter
                 thresholds.each do |t|
-                    result[symbol_item][:observations][p][:uniqueness][:time][t] = (((seconds[p][t].to_f/problem_counter)*1000).floor)/1000.0
-                    result[symbol_item][:observations][p][:uniqueness][:accuracy][t] = (accuracy[p][t].to_f/problem_counter) * 100.0
+                    result[symbol_item][:observations][p][:uniqueness][:time][t] = ((((seconds[p][:uniqueness][t].to_f/problem_counter)*1000).floor)/1000.0) * 5
+                    result[symbol_item][:observations][p][:uniqueness][:accuracy][t] = ((accuracy[p][:uniqueness][t].to_f/problem_counter) * 100.0) * 5
+                    result[symbol_item][:observations][p][:goalcompletion][:time][t] = ((((seconds[p][:goalcompletion][t].to_f/problem_counter)*1000).floor)/1000.0) * 5
+                    result[symbol_item][:observations][p][:goalcompletion][:accuracy][t] = ((accuracy[p][:goalcompletion][t].to_f/problem_counter) * 100.0) * 5
                 end
             end
         rescue StandardError => e
-            puts e
-        end
-        
-        
+            puts e.backtrace
+        end       
     end
+
+    result
 end
 
 def analyse
     results = all_results
-    output_path = "/home/kingusmao/grupo/results.json"
-    File.write(results, output_path)
+    output_path = "/home/kingusmao/grupo/results-parser/results.json"
+    File.write(output_path, JSON.pretty_generate(results))
 end
 
 analyse

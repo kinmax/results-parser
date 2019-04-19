@@ -1,146 +1,91 @@
 rm -rf domain.pddl template.pddl templateInitial.pddl obs.dat hyps.dat plan.png real_hyp.dat
-tar -jxvf /home/kingusmao/grupo/goal-plan-recognition-dataset/dwr/dwr_p01_hyp-2_70_3.tar.bz2
+tar -jxvf /home/kingusmao/grupo/goal-plan-recognition-dataset/kitchen/kitchen_generic_hyp-0_10_6.tar.bz2
 Parsed Domain file domain.pddl successfully
 Parsed Problem file templateInitial.pddl successfully
 
 Grounding...
 Grounding complete!
 
+$$$> Calculating landmark uniqueness value for all candidate goals: 
+
+(and (made_breakfast) )
+	[made_toast, taken butter, taken knife] = 1.0
+	[made_breakfast] = 1.0
+	[taken cereal, taken milk, taken bowl] = 1.0
+	[taken spoon, made_cereals, made_buttered_toast] = 1.0
+	[used toaster, taken bread] = 1.0
+(and (lunch_packed) )
+	[taken lunch_bag] = 1.0
+	[lunch_packed] = 1.0
+(and (made_dinner) )
+	[made_dinner] = 1.0
+
 $$$> Computing achieved landmarks from observations for all candidate goals: 
 
-# Initial state: on ca pallet, at r1 l1, on cc cb, on ce cd, top cc p1, top cf q1, in ca p1, on cb ca, top pallet p2, on cd pallet, unloaded r1, in ce q1, empty k1, empty k2, top pallet q2, occupied l1, in cf q1, in cc p1, in cd q1, in cb p1, on cf ce
+# Initial state: 
 
 # Observations: 
-	>$ put k1 cc q1 cf l1
-	>$ take k1 cb p1 ca l1
-	>$ load k1 cb r1 l1
-	>$ move r1 l1 l2
-	>$ unload k2 cb r1 l2
-	>$ take k1 ca p1 pallet l1
-	>$ move r1 l2 l1
-	>$ load k1 ca r1 l1
-	>$ take k1 cc q1 cf l1
-	>$ put k2 cb q2 pallet l2
-	>$ move r1 l1 l2
-	>$ take k1 cf q1 ce l1
-	>$ put k1 cf p1 cc l1
-	>$ load k1 ce r1 l1
-	>$ put k2 ca p2 pallet l2
-	>$ move r1 l1 l2
-	>$ unload k2 ce r1 l2
-	>$ move r1 l2 l1
-	>$ take k1 cd q1 pallet l1
-	>$ unload k2 cd r1 l2
-	>$ take k1 cf p1 cc l1
-	>$ put k2 cd q2 cb l2
+	>$ take cup
+	>$ take milk
 
----> Goal: (and (in cb p2)  (in ca q1)  (in ce p2)  (in cf p1)  (in cc p2)  (in cd p1) )
+---> Goal: (and (made_breakfast) )
 		 #> Ordered Landmarks: 
-		 # in cb p2 -> [[at r1 l1, unloaded r1, holding k1 cc], [empty k2, at r1 l2, loaded r1 cc], [holding k2 cc], [at r1 l1], [empty k1, on cc cb, top cc p1, in cc p1], [empty k1, top cb p1, in cb p1, on cb ca], [holding k1 cb, at r1 l1, unloaded r1], [loaded r1 cb, empty k2, at r1 l2], [top pallet p2, holding k2 cb, top cc p2], [in cb p2]]
-		 # in ca q1 -> [[on cd pallet, empty k1, top cd q1, in cd q1], [in ce q1, empty k1, top ce q1, on ce cd], [in cf q1, top cf q1, on cf ce], [empty k1, in cb p1, on cb ca], [on ca pallet, empty k1, in ca p1, top ca p1], [holding k1 ca, top ce q1, top cd q1, top pallet q1, top cf q1], [in ca q1]]
-		 # in cf p1 -> [[empty k1, on cc cb, top cc p1, in cc p1], [empty k1, in cf q1, top cf q1, on cf ce], [holding k1 cf, top cc p1, top cb p1], [in cf p1]]
-		 # in ce p2 -> [[empty k1, on cc cb, top cc p1, in cc p1], [at r1 l1, unloaded r1, holding k1 cc], [empty k2, at r1 l2, loaded r1 cc], [holding k2 cc], [at r1 l1], [in cf q1, top cf q1, on cf ce], [in ce q1, empty k1, top ce q1, on ce cd], [at r1 l1, unloaded r1, holding k1 ce], [empty k2, loaded r1 ce, at r1 l2], [top pallet p2, holding k2 ce, top cc p2], [in ce p2]]
-		 # in cd p1 -> [[empty k1, on cc cb, top cc p1, in cc p1], [empty k1, in cf q1, top cf q1, on cf ce], [holding k1 cf, top cc p1, top cb p1], [empty k1, in cb p1, on cb ca], [on ca pallet, empty k1, in ca p1, top ca p1], [in cf q1, top cf q1, on cf ce], [in ce q1, empty k1, top ce q1, on ce cd], [on cd pallet, empty k1, top cd q1, in cd q1], [holding k1 cd, top pallet p1, top cf p1, top cc p1, top cb p1, top ca p1], [in cd p1]]
-		 # in cc p2 -> [[empty k1, on cc cb, top cc p1, in cc p1], [at r1 l1, unloaded r1, holding k1 cc], [at r1 l1], [empty k2, at r1 l2, loaded r1 cc], [top pallet p2, holding k2 cc], [in cc p2]]
+		 # made_breakfast -> [[used toaster, taken bread], [made_toast, taken butter, taken knife], [taken cereal, taken milk, taken bowl], [taken spoon, made_cereals, made_buttered_toast], [made_breakfast]]
 
-	>$ put k1 cc q1 cf l1
-	>$ take k1 cb p1 ca l1
-	>$ load k1 cb r1 l1
-	>$ move r1 l1 l2
-	>$ unload k2 cb r1 l2
-	>$ take k1 ca p1 pallet l1
-	>$ move r1 l2 l1
-	>$ load k1 ca r1 l1
-	>$ take k1 cc q1 cf l1
-	>$ put k2 cb q2 pallet l2
-	>$ move r1 l1 l2
-	>$ take k1 cf q1 ce l1
-	>$ put k1 cf p1 cc l1
-	>$ load k1 ce r1 l1
-	>$ put k2 ca p2 pallet l2
-	>$ move r1 l1 l2
-	>$ unload k2 ce r1 l2
-	>$ move r1 l2 l1
-	>$ take k1 cd q1 pallet l1
-	>$ unload k2 cd r1 l2
-	>$ take k1 cf p1 cc l1
-	>$ put k2 cd q2 cb l2
+	>$ take cup
+	>$ take milk
 
 	># Achieved Landmarks in Observations: 
-		[[at r1 l1], [in cf q1, top cf q1, on cf ce], [loaded r1 cb, empty k2, at r1 l2], [empty k1, in cf q1, top cf q1, on cf ce], [empty k2, loaded r1 ce, at r1 l2], [on cd pallet, empty k1, top cd q1, in cd q1], [empty k1, on cc cb, top cc p1, in cc p1], [empty k1, top cb p1, in cb p1, on cb ca], [at r1 l1, unloaded r1, holding k1 ce], [in ce q1, empty k1, top ce q1, on ce cd], [at r1 l1, unloaded r1, holding k1 cc], [holding k1 cb, at r1 l1, unloaded r1], [on ca pallet, empty k1, in ca p1, top ca p1], [in cf p1], [empty k1, in cb p1, on cb ca]]
+		[]
 
----> Goal: (and (in cf q1)  (in ce p2)  (in cc p1)  (in cd q2)  (in ca p2)  (in cb q2) )
+---> Goal: (and (lunch_packed) )
 		 #> Ordered Landmarks: 
-		 # in cf q1 -> [[in cf q1]]
-		 # in ce p2 -> [[at r1 l1], [top cf q1, on cf ce], [in ce q1, empty k1, top ce q1, on ce cd], [at r1 l1, unloaded r1, holding k1 ce], [empty k2, loaded r1 ce, at r1 l2], [top pallet p2, holding k2 ce], [in ce p2]]
-		 # in cc p1 -> [[in cc p1]]
-		 # in cd q2 -> [[empty k2], [empty k1, on cc cb, top cc p1], [empty k1, top cb p1, in cb p1, on cb ca], [holding k1 cb, at r1 l1, unloaded r1], [loaded r1 cb, empty k2, at r1 l2], [holding k2 cb, empty k2, top pallet q2, on cc cb], [at r1 l1], [top cf q1, on cf ce], [in ce q1, empty k1, top ce q1, on ce cd], [on cd pallet, empty k1, top cd q1, in cd q1], [holding k1 cd, at r1 l1, unloaded r1], [loaded r1 cd, empty k2, at r1 l2], [holding k2 cd, top pallet q2, top cb q2, top cd q2], [in cd q2]]
-		 # in ca p2 -> [[empty k2], [top cf q1, on cf ce], [in ce q1, empty k1, top ce q1, on ce cd], [at r1 l1, unloaded r1, holding k1 ce], [empty k2, loaded r1 ce, at r1 l2], [empty k2, holding k2 ce, on cf ce], [empty k1, on cc cb, top cc p1], [top cb p1, in cb p1, on cb ca], [on ca pallet, empty k1, in ca p1, top ca p1], [at r1 l1, unloaded r1, holding k1 ca], [at r1 l1], [empty k2, at r1 l2, loaded r1 ca], [top pallet p2, holding k2 ca, top ce p2, top ca p2], [in ca p2]]
-		 # in cb q2 -> [[at r1 l1], [empty k1, on cc cb, top cc p1], [empty k1, top cb p1, in cb p1, on cb ca], [holding k1 cb, at r1 l1, unloaded r1], [loaded r1 cb, empty k2, at r1 l2], [holding k2 cb, top pallet q2], [in cb q2]]
+		 # lunch_packed -> [[taken lunch_bag], [lunch_packed]]
 
-	>$ put k1 cc q1 cf l1
-	>$ take k1 cb p1 ca l1
-	>$ load k1 cb r1 l1
-	>$ move r1 l1 l2
-	>$ unload k2 cb r1 l2
-	>$ take k1 ca p1 pallet l1
-	>$ move r1 l2 l1
-	>$ load k1 ca r1 l1
-	>$ take k1 cc q1 cf l1
-	>$ put k2 cb q2 pallet l2
-	>$ move r1 l1 l2
-	>$ take k1 cf q1 ce l1
-	>$ put k1 cf p1 cc l1
-	>$ load k1 ce r1 l1
-	>$ put k2 ca p2 pallet l2
-	>$ move r1 l1 l2
-	>$ unload k2 ce r1 l2
-	>$ move r1 l2 l1
-	>$ take k1 cd q1 pallet l1
-	>$ unload k2 cd r1 l2
-	>$ take k1 cf p1 cc l1
-	>$ put k2 cd q2 cb l2
+	>$ take cup
+	>$ take milk
 
 	># Achieved Landmarks in Observations: 
-		[[loaded r1 cd, empty k2, at r1 l2], [at r1 l1], [top cb p1, in cb p1, on cb ca], [at r1 l1, unloaded r1, holding k1 ca], [loaded r1 cb, empty k2, at r1 l2], [empty k2, loaded r1 ce, at r1 l2], [empty k1, on cc cb, top cc p1], [on cd pallet, empty k1, top cd q1, in cd q1], [in ca p2], [empty k1, top cb p1, in cb p1, on cb ca], [holding k2 cb, empty k2, top pallet q2, on cc cb], [holding k2 cb, top pallet q2], [empty k2, at r1 l2, loaded r1 ca], [at r1 l1, unloaded r1, holding k1 ce], [top cf q1, on cf ce], [in ce q1, empty k1, top ce q1, on ce cd], [empty k2], [in cf q1], [holding k1 cb, at r1 l1, unloaded r1], [on ca pallet, empty k1, in ca p1, top ca p1], [in cc p1], [holding k1 cd, at r1 l1, unloaded r1], [in cd q2], [in cb q2]]
+		[]
 
----> Goal: (and (in cd p2)  (in cc q1)  (in ce q2)  (in cf q2)  (in ca q2)  (in cb q2) )
+---> Goal: (and (made_dinner) )
 		 #> Ordered Landmarks: 
-		 # in cd p2 -> [[at r1 l1], [empty k1, in cf q1, on cf ce], [in ce q1, empty k1, top ce q1, on ce cd], [on cd pallet, empty k1, top cd q1, in cd q1], [holding k1 cd, at r1 l1, unloaded r1], [loaded r1 cd, empty k2, at r1 l2], [empty k2], [top pallet p2, top cd p2, holding k2 cd], [in cd p2]]
-		 # in cc q1 -> [[empty k1, on cc cb, top cc p1, in cc p1], [empty k1, in cf q1, on cf ce], [top ce q1, holding k1 cc, top cf q1], [in cc q1]]
-		 # in ce q2 -> [[empty k1, in cf q1, on cf ce], [in ce q1, empty k1, top ce q1, on ce cd], [at r1 l1, unloaded r1, holding k1 ce], [loaded r1 ce, at r1 l2], [empty k1, in cf q1, top cf q1, on cf ce], [at r1 l1, holding k1 cf, unloaded r1], [at r1 l1], [empty k2, at r1 l2, loaded r1 cf], [top pallet q2, holding k2 cf], [top pallet q2, top cf q2, holding k2 ce], [in ce q2]]
-		 # in cf q2 -> [[empty k1, in cf q1, top cf q1, on cf ce], [at r1 l1, holding k1 cf, unloaded r1], [at r1 l1], [empty k2, at r1 l2, loaded r1 cf], [top pallet q2, holding k2 cf], [in cf q2]]
-		 # in ca q2 -> [[empty k2], [empty k1, top cb p1, in cb p1, on cb ca], [holding k1 cb, at r1 l1, unloaded r1], [loaded r1 cb, empty k2, at r1 l2], [holding k2 cb, empty k2, top pallet q2, on cc cb, top cf q2], [empty k1, in cf q1, on cf ce], [in ce q1, empty k1, top ce q1, on ce cd], [at r1 l1, unloaded r1, holding k1 ce], [loaded r1 ce, at r1 l2], [empty k2, top pallet q2, holding k2 ce, on cf ce], [empty k1, in cf q1, top cf q1, on cf ce], [at r1 l1, holding k1 cf, unloaded r1], [empty k2, at r1 l2, loaded r1 cf], [top pallet q2, holding k2 cf], [empty k1, on cc cb, top cc p1, in cc p1], [top cb p1, in cb p1, on cb ca], [on ca pallet, empty k1, in ca p1, top ca p1], [at r1 l1, unloaded r1, holding k1 ca], [at r1 l1], [empty k2, at r1 l2, loaded r1 ca], [holding k2 ca, top pallet q2, top cf q2, top ce q2, top cb q2, top ca q2], [in ca q2]]
-		 # in cb q2 -> [[empty k1, in cf q1, top cf q1, on cf ce], [at r1 l1, holding k1 cf, unloaded r1], [empty k2, at r1 l2, loaded r1 cf], [top pallet q2, holding k2 cf], [at r1 l1], [empty k1, on cc cb, top cc p1, in cc p1], [empty k1, top cb p1, in cb p1, on cb ca], [holding k1 cb, at r1 l1, unloaded r1], [loaded r1 cb, empty k2, at r1 l2], [holding k2 cb, top pallet q2, top cf q2], [in cb q2]]
+		 # made_dinner -> [[made_dinner]]
 
-	>$ put k1 cc q1 cf l1
-	>$ take k1 cb p1 ca l1
-	>$ load k1 cb r1 l1
-	>$ move r1 l1 l2
-	>$ unload k2 cb r1 l2
-	>$ take k1 ca p1 pallet l1
-	>$ move r1 l2 l1
-	>$ load k1 ca r1 l1
-	>$ take k1 cc q1 cf l1
-	>$ put k2 cb q2 pallet l2
-	>$ move r1 l1 l2
-	>$ take k1 cf q1 ce l1
-	>$ put k1 cf p1 cc l1
-	>$ load k1 ce r1 l1
-	>$ put k2 ca p2 pallet l2
-	>$ move r1 l1 l2
-	>$ unload k2 ce r1 l2
-	>$ move r1 l2 l1
-	>$ take k1 cd q1 pallet l1
-	>$ unload k2 cd r1 l2
-	>$ take k1 cf p1 cc l1
-	>$ put k2 cd q2 cb l2
+	>$ take cup
+	>$ take milk
 
 	># Achieved Landmarks in Observations: 
-		[[loaded r1 cd, empty k2, at r1 l2], [at r1 l1], [top cb p1, in cb p1, on cb ca], [at r1 l1, unloaded r1, holding k1 ca], [loaded r1 cb, empty k2, at r1 l2], [empty k1, in cf q1, top cf q1, on cf ce], [on cd pallet, empty k1, top cd q1, in cd q1], [empty k1, on cc cb, top cc p1, in cc p1], [empty k1, top cb p1, in cb p1, on cb ca], [empty k2, at r1 l2, loaded r1 ca], [at r1 l1, unloaded r1, holding k1 ce], [in ce q1, empty k1, top ce q1, on ce cd], [empty k1, in cf q1, on cf ce], [at r1 l1, holding k1 cf, unloaded r1], [empty k2], [in cc q1], [loaded r1 ce, at r1 l2], [holding k1 cb, at r1 l1, unloaded r1], [on ca pallet, empty k1, in ca p1, top ca p1], [holding k1 cd, at r1 l1, unloaded r1], [top ce q1, holding k1 cc, top cf q1], [in cb q2]]
+		[]
 
----> Goal: (and (in ca q1)  (in ce p2)  (in cf p1)  (in cc p2)  (in cd q2)  (in cb q2) )
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$ Landmark Uniqueness Heuristic $$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-real	0m0,946s
-user	0m1,148s
-sys	0m0,188s
+---> Goal: (and (made_breakfast) )
+
+	$$$$> Heuristic Value = 0.0
+		0.0 / 5.0
+
+---> Goal: (and (lunch_packed) )
+
+	$$$$> Heuristic Value = 0.0
+		0.0 / 2.0
+
+---> Goal: (and (made_dinner) )
+
+	$$$$> Heuristic Value = 0.0
+		0.0 / 1.0
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$> Recognized goal(s) within the threshold 30.0: 
+$> (and (made_breakfast) ): 0.0
+$> (and (lunch_packed) ): 0.0
+$> (and (made_dinner) ): 0.0
+
+<?> Correct goal: (and (made_breakfast) )
+<?> Was the correct goal recognized correctly? true
+
+real	0m0,487s
+user	0m0,511s
+sys	0m0,167s
