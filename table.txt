@@ -1,0 +1,15 @@
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+      \hline
+      \multicolumn{5}{|c|}{}&\multicolumn{2}{|c|}{\textit{h_{gc}}}&\multicolumn{2}{|c|}{\textit{h_{uniq}}}\\
+      \hline
+      \textbf{Domain}&$|\mathcal{G}|$&$|\mathcal{L}|$&\textbf{\% Obs}&$|\mathcal{O}|$&\makecell{\textbf{Time (s)}\\$\theta$   \textbf{(0 / 10 / 20 / 30)}}&\makecell{\textbf{Accuracy (\%)}\\$\theta$   \textbf{(0 / 10 / 20 / 30)}}&\makecell{\textbf{Time (s)}\\$\theta$   \textbf{(0 / 10 / 20 /30)}}&\makecell{\textbf{Accuracy (\%)}\\$\theta$   \textbf{(0 / 10 / 20 / 30)}}\\
+      \hline
+      \makecell{KITCHEN\\5} & 3.0 & 2.7 & \makecell{10 \\ 30 \\ 50 \\ 70 \\ 100} & \makecell{0.4 \\ 1.0 \\ 0.4 \\ 0.6 \\ 1.2} & \makecell{0.470 / 0.450 / 0.470 / 0.465 \\ 0.495 / 0.480 / 0.520 / 0.540 \\ 0.455 / 0.515 / 0.950 / 0.525 \\ 0.490 / 0.490 / 0.470 / 0.485 \\ 0.520 / 0.475 / 0.515 / 0.530} & \makecell{100.0 / 100.0 / 100.0 / 100.0 \\ 100.0 / 100.0 / 100.0 / 100.0 \\ 100.0 / 100.0 / 100.0 / 100.0 \\ 100.0 / 100.0 / 100.0 / 100.0 \\ 100.0 / 100.0 / 100.0 / 100.0} & \makecell{0.495 / 0.495 / 0.485 / 0.485 \\ 0.545 / 0.505 / 0.515 / 0.480 \\ 0.500 / 0.495 / 0.625 / 0.540 \\ 0.525 / 0.530 / 0.485 / 0.475 \\ 0.515 / 0.460 / 0.485 / 0.530} & \makecell{100.0 / 100.0 / 100.0 / 100.0 \\ 100.0 / 100.0 / 100.0 / 100.0 \\ 100.0 / 100.0 / 100.0 / 100.0 \\ 100.0 / 100.0 / 100.0 / 100.0 \\ 100.0 / 100.0 / 100.0 / 100.0} \Bstrut \\
+    \hline
+    \end{tabular}}
+\caption{Resultados obtidos na reprodução dos experimentos}
+\label{table:resultados}
+\end{table}

@@ -109,21 +109,17 @@ def all_results
                     tmp.pop
                     percentual_observed = tmp.last.to_i
                 end 
+
+                #FILTER
+                run_type = "-filter"
+                cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} 0 #{res_path}"
+                system(cmd)
+                single_result_f = parse_filter
+                goals += single_result_f[:goals]
+                landmarks += single_result_f[:landmarks]
+                observations[percentual_observed.to_s] += single_result_f[:observations]
                 
-                
-                
-                thresholds.each do |tr|
-                    #FILTER
-                    if tr == "0" # so it only runs once per file
-                        run_type = "-filter"
-                        cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
-                        system(cmd)
-                        single_result_f = parse_filter
-                        goals += single_result_f[:goals]
-                        landmarks += single_result_f[:landmarks]
-                        observations[percentual_observed.to_s] += single_result_f[:observations]
-                    end
-        
+                thresholds.each do |tr|        
                     #GOAL COMPLETION
                     run_type = "-goalcompletion"
                     cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
@@ -166,12 +162,12 @@ def all_results
             end
 
             percentages.each do |p|
-                result[symbol_item][:observations][p][:observations_avg] = observations[p].to_f/problem_counter
+                result[symbol_item][:observations][p][:observations_avg] = (observations[p].to_f/problem_counter)
                 thresholds.each do |t|
-                    result[symbol_item][:observations][p][:uniqueness][:time][t] = ((((seconds[p][:uniqueness][t].to_f/problem_counter)*1000).floor)/1000.0) * 5
-                    result[symbol_item][:observations][p][:uniqueness][:accuracy][t] = ((accuracy[p][:uniqueness][t].to_f/problem_counter) * 100.0) * 5
-                    result[symbol_item][:observations][p][:goalcompletion][:time][t] = ((((seconds[p][:goalcompletion][t].to_f/problem_counter)*1000).floor)/1000.0) * 5
-                    result[symbol_item][:observations][p][:goalcompletion][:accuracy][t] = ((accuracy[p][:goalcompletion][t].to_f/problem_counter) * 100.0) * 5
+                    result[symbol_item][:observations][p][:uniqueness][:time][t] = ((((seconds[p][:uniqueness][t].to_f/problem_counter)*1000).floor)/1000.0)
+                    result[symbol_item][:observations][p][:uniqueness][:accuracy][t] = ((accuracy[p][:uniqueness][t].to_f/problem_counter) * 100.0)
+                    result[symbol_item][:observations][p][:goalcompletion][:time][t] = ((((seconds[p][:goalcompletion][t].to_f/problem_counter)*1000).floor)/1000.0)
+                    result[symbol_item][:observations][p][:goalcompletion][:accuracy][t] = ((accuracy[p][:goalcompletion][t].to_f/problem_counter) * 100.0)
                 end
             end
         rescue StandardError => e
