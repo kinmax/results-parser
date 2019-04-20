@@ -39,7 +39,7 @@ def get_heuristic_correctness_and_time
     time = raw.split("<?>").last.split(correctness.to_s).last.split("\n\n").last.split("real").last.split("\n").first.split("\t").last
     minutes = time.split("m").first.to_i
     seconds = time.split("m").last.split("s").first.split(",").first.to_i
-    miliseconds = time.split("m").last.split("s").first.split(",").last.to_i
+    miliseconds = time.split("m").last.split("s").first.split(",").last.split(".").last.to_i
     seconds = seconds + (miliseconds * 0.001)
     seconds = ((seconds * 1000).floor)/1000.0
     rec_goals = raw.split("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$").last.scan("$>").count - 1
@@ -67,15 +67,19 @@ def all_results
     observations = {}
     seconds = {}   
     accuracy = {}
+    counter = {}
     percentages.each do |p|
         observations[p] = 0
         seconds[p] = {}
         accuracy[p] = {}
+        counter[p] = {}
+        counter[p]["all"] = 0
         seconds[p][:goalcompletion] = {}
         accuracy[p][:goalcompletion] = {}
         seconds[p][:uniqueness] = {}
         accuracy[p][:uniqueness] = {}
         thresholds.each do |t|
+            counter[p][t] = 0
             seconds[p][:goalcompletion][t] = 0
             accuracy[p][:goalcompletion][t] = 0
             seconds[p][:uniqueness][t] = 0
@@ -119,7 +123,8 @@ def all_results
                 landmarks += single_result_f[:landmarks]
                 observations[percentual_observed.to_s] += single_result_f[:observations]
                 
-                thresholds.each do |tr|        
+                thresholds.each do |tr|
+                    counter[percentual_observed.to_s][tr] += 1      
                     #GOAL COMPLETION
                     run_type = "-goalcompletion"
                     cmd = "bash #{run_path} #{java_path} #{jar_path} #{run_type} #{tar_path} #{tr} #{res_path}"
@@ -148,12 +153,12 @@ def all_results
             result[symbol_item][:goals_avg] = goals.to_f/problem_counter
             result[symbol_item][:landmarks_avg] = landmarks.to_f/problem_counter
             result[symbol_item][:observations] = {}
-
             percentages.each do |p|
                 result[symbol_item][:observations][p] = {}
                 result[symbol_item][:observations][p][:uniqueness] = {}
                 result[symbol_item][:observations][p][:goalcompletion] = {}
                 thresholds.each do |t|
+                    counter[p]["all"] += counter[p][t]
                     result[symbol_item][:observations][p][:uniqueness][:time] = {}
                     result[symbol_item][:observations][p][:uniqueness][:accuracy] = {}
                     result[symbol_item][:observations][p][:goalcompletion][:time] = {}
@@ -162,12 +167,12 @@ def all_results
             end
 
             percentages.each do |p|
-                result[symbol_item][:observations][p][:observations_avg] = (observations[p].to_f/problem_counter)
+                result[symbol_item][:observations][p][:observations_avg] = (observations[p].to_f/counter[p]["all"])
                 thresholds.each do |t|
-                    result[symbol_item][:observations][p][:uniqueness][:time][t] = ((((seconds[p][:uniqueness][t].to_f/problem_counter)*1000).floor)/1000.0)
-                    result[symbol_item][:observations][p][:uniqueness][:accuracy][t] = ((accuracy[p][:uniqueness][t].to_f/problem_counter) * 100.0)
-                    result[symbol_item][:observations][p][:goalcompletion][:time][t] = ((((seconds[p][:goalcompletion][t].to_f/problem_counter)*1000).floor)/1000.0)
-                    result[symbol_item][:observations][p][:goalcompletion][:accuracy][t] = ((accuracy[p][:goalcompletion][t].to_f/problem_counter) * 100.0)
+                    result[symbol_item][:observations][p][:uniqueness][:time][t] = ((((seconds[p][:uniqueness][t].to_f/counter[p][t])*1000).floor)/1000.0)
+                    result[symbol_item][:observations][p][:uniqueness][:accuracy][t] = ((accuracy[p][:uniqueness][t].to_f/counter[p][t]) * 100.0)
+                    result[symbol_item][:observations][p][:goalcompletion][:time][t] = ((((seconds[p][:goalcompletion][t].to_f/counter[p][t])*1000).floor)/1000.0)
+                    result[symbol_item][:observations][p][:goalcompletion][:accuracy][t] = ((accuracy[p][:goalcompletion][t].to_f/counter[p][t]) * 100.0)
                 end
             end
         rescue StandardError => e
