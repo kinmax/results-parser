@@ -122,6 +122,7 @@ def all_results
                 goals += single_result_f[:goals]
                 landmarks += single_result_f[:landmarks]
                 observations[percentual_observed.to_s] += single_result_f[:observations]
+                counter[percentual_observed.to_s]["all"] += 1
                 
                 thresholds.each do |tr|
                     counter[percentual_observed.to_s][tr] += 1      
@@ -158,7 +159,6 @@ def all_results
                 result[symbol_item][:observations][p][:uniqueness] = {}
                 result[symbol_item][:observations][p][:goalcompletion] = {}
                 thresholds.each do |t|
-                    counter[p]["all"] += counter[p][t]
                     result[symbol_item][:observations][p][:uniqueness][:time] = {}
                     result[symbol_item][:observations][p][:uniqueness][:accuracy] = {}
                     result[symbol_item][:observations][p][:goalcompletion][:time] = {}

@@ -1,377 +1,68 @@
 rm -rf domain.pddl template.pddl templateInitial.pddl obs.dat hyps.dat plan.png real_hyp.dat
-tar -jxvf /home/kingusmao/grupo/goal-plan-recognition-dataset/zeno-travel/zeno-travel_p07_hyp-4_70_1.tar.bz2
+tar -jxvf /home/kingusmao/grupo/goal-plan-recognition-dataset/kitchen/kitchen_generic_hyp-0_full_11.tar.bz2
 Parsed Domain file domain.pddl successfully
 Parsed Problem file templateInitial.pddl successfully
 
 Grounding...
 Grounding complete!
 
-# Initial state: at plane2 city4, at person4 city2, fuellevel plane3 fl2, at person2 city3, at person1 city5, fuellevel plane1 fl2, at person6 city2, at person8 city5, at person5 city5, at plane1 city2, at plane3 city3, at person3 city4, at person7 city1, fuellevel plane2 fl5
+# Initial state: 
 
 # Observations: 
-	>$ board person3 plane2 city4
-	>$ zoom plane2 city4 city1 fl5 fl4 fl3
-	>$ debark person3 plane2 city1
-	>$ zoom plane1 city2 city0 fl2 fl1 fl0
-	>$ zoom plane2 city1 city2 fl3 fl2 fl1
-	>$ board person6 plane2 city2
-	>$ fly plane2 city2 city1 fl1 fl0
-	>$ refuel plane1 city0 fl0 fl1
-	>$ fly plane1 city0 city5 fl1 fl0
-	>$ board person1 plane1 city5
-	>$ board person8 plane3 city5
-	>$ board person5 plane3 city5
-	>$ fly plane3 city5 city1 fl1 fl0
-	>$ board person7 plane3 city1
-	>$ refuel plane3 city1 fl0 fl1
-	>$ fly plane3 city1 city5 fl1 fl0
-	>$ debark person7 plane3 city5
-	>$ refuel plane1 city5 fl0 fl1
-	>$ debark person1 plane1 city0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ refuel plane2 city1 fl0 fl1
-	>$ fly plane2 city1 city2 fl1 fl0
-	>$ fly plane3 city2 city5 fl1 fl0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ debark person8 plane3 city3
-	>$ board person4 plane2 city2
-	>$ refuel plane3 city3 fl0 fl1
-	>$ fly plane3 city3 city5 fl1 fl0
-	>$ refuel plane2 city3 fl0 fl1
-	>$ fly plane1 city0 city3 fl2 fl1
-	>$ board person2 plane1 city3
-	>$ fly plane1 city3 city2 fl1 fl0
-	>$ debark person2 plane1 city2
+	>$ take plate
+	>$ take bread
+	>$ take cheese
 
----> Goal: (and (at person5 city5)  (at person2 city0)  (at person4 city2)  (at plane2 city2)  (at person3 city4)  (at person1 city1)  (at person6 city0)  (at person7 city3)  (at person8 city4) )
+---> Goal: (and (made_breakfast) )
 		 #> Ordered Landmarks: 
-		 # at person5 city5 -> [[at person5 city5]]
-		 # at person2 city0 -> [[at person2 city0]]
-		 # at person4 city2 -> [[at person4 city2]]
-		 # at person3 city4 -> [[at person3 city4]]
-		 # at plane2 city2 -> [[at plane2 city4, fuellevel plane2 fl5], [at plane2 city2]]
-		 # at person1 city1 -> [[at person1 city1]]
-		 # at person6 city0 -> [[at person6 city0]]
-		 # at person7 city3 -> [[at plane3 city3], [at person7 city3]]
-		 # at person8 city4 -> [[at plane2 city4], [at person8 city4]]
+		 # made_breakfast -> [[used toaster, taken bread], [made_toast, taken butter, taken knife], [taken cereal, taken milk, taken bowl], [taken spoon, made_cereals, made_buttered_toast], [made_breakfast]]
 
-	>$ board person3 plane2 city4
-	>$ zoom plane2 city4 city1 fl5 fl4 fl3
-	>$ debark person3 plane2 city1
-	>$ zoom plane1 city2 city0 fl2 fl1 fl0
-	>$ zoom plane2 city1 city2 fl3 fl2 fl1
-	>$ board person6 plane2 city2
-	>$ fly plane2 city2 city1 fl1 fl0
-	>$ refuel plane1 city0 fl0 fl1
-	>$ fly plane1 city0 city5 fl1 fl0
-	>$ board person1 plane1 city5
-	>$ board person8 plane3 city5
-	>$ board person5 plane3 city5
-	>$ fly plane3 city5 city1 fl1 fl0
-	>$ board person7 plane3 city1
-	>$ refuel plane3 city1 fl0 fl1
-	>$ fly plane3 city1 city5 fl1 fl0
-	>$ debark person7 plane3 city5
-	>$ refuel plane1 city5 fl0 fl1
-	>$ debark person1 plane1 city0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ refuel plane2 city1 fl0 fl1
-	>$ fly plane2 city1 city2 fl1 fl0
-	>$ fly plane3 city2 city5 fl1 fl0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ debark person8 plane3 city3
-	>$ board person4 plane2 city2
-	>$ refuel plane3 city3 fl0 fl1
-	>$ fly plane3 city3 city5 fl1 fl0
-	>$ refuel plane2 city3 fl0 fl1
-	>$ fly plane1 city0 city3 fl2 fl1
-	>$ board person2 plane1 city3
-	>$ fly plane1 city3 city2 fl1 fl0
-	>$ debark person2 plane1 city2
+	>$ take plate
+	>$ take bread
+	>$ take cheese
 
 	># Achieved Landmarks in Observations: 
-		[[at person5 city5], [at plane2 city4, fuellevel plane2 fl5], [at plane3 city3], [at plane2 city4], [at person4 city2], [at person3 city4], [at plane2 city2]]
+		[]
 
-	+> Amount of Fact Landmarks: 12.0
-	+> Achieved Fact Landmarks: 7.0
-	+> Percentage: 0.5833333
+	+> Amount of Fact Landmarks: 5.0
+	+> Achieved Fact Landmarks: 0.0
+	+> Percentage: 0.0
 
----> Goal: (and (at person3 city0)  (at plane2 city2)  (at person7 city0)  (at person1 city1)  (at person4 city3)  (at person2 city3)  (at person8 city1)  (at person5 city4)  (at person6 city2) )
+---> Goal: (and (lunch_packed) )
 		 #> Ordered Landmarks: 
-		 # at person3 city0 -> [[at person3 city0]]
-		 # at person7 city0 -> [[at person7 city0]]
-		 # at plane2 city2 -> [[at plane2 city4, fuellevel plane2 fl5], [at plane2 city2]]
-		 # at person1 city1 -> [[at person1 city1]]
-		 # at person4 city3 -> [[at person4 city3]]
-		 # at person2 city3 -> [[at person2 city3]]
-		 # at person8 city1 -> [[at person8 city1]]
-		 # at person5 city4 -> [[at plane2 city4], [at person5 city4]]
-		 # at person6 city2 -> [[at person6 city2]]
+		 # lunch_packed -> [[taken lunch_bag], [lunch_packed]]
 
-	>$ board person3 plane2 city4
-	>$ zoom plane2 city4 city1 fl5 fl4 fl3
-	>$ debark person3 plane2 city1
-	>$ zoom plane1 city2 city0 fl2 fl1 fl0
-	>$ zoom plane2 city1 city2 fl3 fl2 fl1
-	>$ board person6 plane2 city2
-	>$ fly plane2 city2 city1 fl1 fl0
-	>$ refuel plane1 city0 fl0 fl1
-	>$ fly plane1 city0 city5 fl1 fl0
-	>$ board person1 plane1 city5
-	>$ board person8 plane3 city5
-	>$ board person5 plane3 city5
-	>$ fly plane3 city5 city1 fl1 fl0
-	>$ board person7 plane3 city1
-	>$ refuel plane3 city1 fl0 fl1
-	>$ fly plane3 city1 city5 fl1 fl0
-	>$ debark person7 plane3 city5
-	>$ refuel plane1 city5 fl0 fl1
-	>$ debark person1 plane1 city0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ refuel plane2 city1 fl0 fl1
-	>$ fly plane2 city1 city2 fl1 fl0
-	>$ fly plane3 city2 city5 fl1 fl0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ debark person8 plane3 city3
-	>$ board person4 plane2 city2
-	>$ refuel plane3 city3 fl0 fl1
-	>$ fly plane3 city3 city5 fl1 fl0
-	>$ refuel plane2 city3 fl0 fl1
-	>$ fly plane1 city0 city3 fl2 fl1
-	>$ board person2 plane1 city3
-	>$ fly plane1 city3 city2 fl1 fl0
-	>$ debark person2 plane1 city2
+	>$ take plate
+	>$ take bread
+	>$ take cheese
 
 	># Achieved Landmarks in Observations: 
-		[[at plane2 city4, fuellevel plane2 fl5], [at plane2 city4], [at plane2 city2], [at person2 city3], [at person6 city2]]
+		[]
 
-	+> Amount of Fact Landmarks: 11.0
-	+> Achieved Fact Landmarks: 5.0
-	+> Percentage: 0.45454547
+	+> Amount of Fact Landmarks: 2.0
+	+> Achieved Fact Landmarks: 0.0
+	+> Percentage: 0.0
 
----> Goal: (and (at person3 city1)  (at person5 city0)  (at plane2 city0)  (at person4 city3)  (at person2 city4)  (at person8 city2)  (at person1 city5)  (at person6 city1)  (at person7 city3) )
+---> Goal: (and (made_dinner) )
 		 #> Ordered Landmarks: 
-		 # at person3 city1 -> [[at person3 city1]]
-		 # at person5 city0 -> [[at person5 city0]]
-		 # at person4 city3 -> [[at person4 city3]]
-		 # at plane2 city0 -> [[at plane2 city4, fuellevel plane2 fl5], [at plane2 city0]]
-		 # at person2 city4 -> [[at person2 city4]]
-		 # at person8 city2 -> [[at plane1 city2], [at person8 city2]]
-		 # at person1 city5 -> [[at person1 city5]]
-		 # at person7 city3 -> [[at plane3 city3], [at person7 city3]]
-		 # at person6 city1 -> [[at person6 city1]]
+		 # made_dinner -> [[made_dinner]]
 
-	>$ board person3 plane2 city4
-	>$ zoom plane2 city4 city1 fl5 fl4 fl3
-	>$ debark person3 plane2 city1
-	>$ zoom plane1 city2 city0 fl2 fl1 fl0
-	>$ zoom plane2 city1 city2 fl3 fl2 fl1
-	>$ board person6 plane2 city2
-	>$ fly plane2 city2 city1 fl1 fl0
-	>$ refuel plane1 city0 fl0 fl1
-	>$ fly plane1 city0 city5 fl1 fl0
-	>$ board person1 plane1 city5
-	>$ board person8 plane3 city5
-	>$ board person5 plane3 city5
-	>$ fly plane3 city5 city1 fl1 fl0
-	>$ board person7 plane3 city1
-	>$ refuel plane3 city1 fl0 fl1
-	>$ fly plane3 city1 city5 fl1 fl0
-	>$ debark person7 plane3 city5
-	>$ refuel plane1 city5 fl0 fl1
-	>$ debark person1 plane1 city0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ refuel plane2 city1 fl0 fl1
-	>$ fly plane2 city1 city2 fl1 fl0
-	>$ fly plane3 city2 city5 fl1 fl0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ debark person8 plane3 city3
-	>$ board person4 plane2 city2
-	>$ refuel plane3 city3 fl0 fl1
-	>$ fly plane3 city3 city5 fl1 fl0
-	>$ refuel plane2 city3 fl0 fl1
-	>$ fly plane1 city0 city3 fl2 fl1
-	>$ board person2 plane1 city3
-	>$ fly plane1 city3 city2 fl1 fl0
-	>$ debark person2 plane1 city2
+	>$ take plate
+	>$ take bread
+	>$ take cheese
 
 	># Achieved Landmarks in Observations: 
-		[[at plane1 city2], [at plane2 city4, fuellevel plane2 fl5], [at plane3 city3], [at person3 city1], [at person1 city5]]
+		[]
 
-	+> Amount of Fact Landmarks: 12.0
-	+> Achieved Fact Landmarks: 5.0
-	+> Percentage: 0.41666666
-
----> Goal: (and (at person6 city4)  (at person4 city0)  (at plane1 city0)  (at person3 city2)  (at person7 city4)  (at person8 city1)  (at person1 city5)  (at person2 city5)  (at person5 city1) )
-		 #> Ordered Landmarks: 
-		 # at person6 city4 -> [[at person6 city4]]
-		 # at person4 city0 -> [[at plane1 city2, fuellevel plane1 fl2], [at plane1 city0], [at person4 city0]]
-		 # at person3 city2 -> [[at person3 city2]]
-		 # at plane1 city0 -> [[at plane1 city2, fuellevel plane1 fl2], [at plane1 city0]]
-		 # at person7 city4 -> [[at plane2 city4], [at person7 city4]]
-		 # at person8 city1 -> [[at person8 city1]]
-		 # at person1 city5 -> [[at person1 city5]]
-		 # at person2 city5 -> [[at person2 city5]]
-		 # at person5 city1 -> [[at person5 city1]]
-
-	>$ board person3 plane2 city4
-	>$ zoom plane2 city4 city1 fl5 fl4 fl3
-	>$ debark person3 plane2 city1
-	>$ zoom plane1 city2 city0 fl2 fl1 fl0
-	>$ zoom plane2 city1 city2 fl3 fl2 fl1
-	>$ board person6 plane2 city2
-	>$ fly plane2 city2 city1 fl1 fl0
-	>$ refuel plane1 city0 fl0 fl1
-	>$ fly plane1 city0 city5 fl1 fl0
-	>$ board person1 plane1 city5
-	>$ board person8 plane3 city5
-	>$ board person5 plane3 city5
-	>$ fly plane3 city5 city1 fl1 fl0
-	>$ board person7 plane3 city1
-	>$ refuel plane3 city1 fl0 fl1
-	>$ fly plane3 city1 city5 fl1 fl0
-	>$ debark person7 plane3 city5
-	>$ refuel plane1 city5 fl0 fl1
-	>$ debark person1 plane1 city0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ refuel plane2 city1 fl0 fl1
-	>$ fly plane2 city1 city2 fl1 fl0
-	>$ fly plane3 city2 city5 fl1 fl0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ debark person8 plane3 city3
-	>$ board person4 plane2 city2
-	>$ refuel plane3 city3 fl0 fl1
-	>$ fly plane3 city3 city5 fl1 fl0
-	>$ refuel plane2 city3 fl0 fl1
-	>$ fly plane1 city0 city3 fl2 fl1
-	>$ board person2 plane1 city3
-	>$ fly plane1 city3 city2 fl1 fl0
-	>$ debark person2 plane1 city2
-
-	># Achieved Landmarks in Observations: 
-		[[at plane2 city4], [at plane1 city0], [at plane1 city2, fuellevel plane1 fl2], [at person1 city5]]
-
-	+> Amount of Fact Landmarks: 11.0
-	+> Achieved Fact Landmarks: 4.0
-	+> Percentage: 0.36363637
-
----> Goal: (and (at person5 city3)  (at person6 city5)  (at plane1 city1)  (at person3 city0)  (at person2 city2)  (at person8 city0)  (at person1 city4)  (at person4 city3)  (at person7 city2) )
-		 #> Ordered Landmarks: 
-		 # at person5 city3 -> [[at plane3 city3], [at person5 city3]]
-		 # at person6 city5 -> [[at person6 city5]]
-		 # at plane1 city1 -> [[at plane1 city2, fuellevel plane1 fl2], [at plane1 city1]]
-		 # at person3 city0 -> [[at person3 city0]]
-		 # at person8 city0 -> [[at person8 city0]]
-		 # at person2 city2 -> [[at person2 city2]]
-		 # at person4 city3 -> [[at person4 city3]]
-		 # at person1 city4 -> [[at plane2 city4], [at person1 city4]]
-		 # at person7 city2 -> [[at plane1 city2], [at person7 city2]]
-
-	>$ board person3 plane2 city4
-	>$ zoom plane2 city4 city1 fl5 fl4 fl3
-	>$ debark person3 plane2 city1
-	>$ zoom plane1 city2 city0 fl2 fl1 fl0
-	>$ zoom plane2 city1 city2 fl3 fl2 fl1
-	>$ board person6 plane2 city2
-	>$ fly plane2 city2 city1 fl1 fl0
-	>$ refuel plane1 city0 fl0 fl1
-	>$ fly plane1 city0 city5 fl1 fl0
-	>$ board person1 plane1 city5
-	>$ board person8 plane3 city5
-	>$ board person5 plane3 city5
-	>$ fly plane3 city5 city1 fl1 fl0
-	>$ board person7 plane3 city1
-	>$ refuel plane3 city1 fl0 fl1
-	>$ fly plane3 city1 city5 fl1 fl0
-	>$ debark person7 plane3 city5
-	>$ refuel plane1 city5 fl0 fl1
-	>$ debark person1 plane1 city0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ refuel plane2 city1 fl0 fl1
-	>$ fly plane2 city1 city2 fl1 fl0
-	>$ fly plane3 city2 city5 fl1 fl0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ debark person8 plane3 city3
-	>$ board person4 plane2 city2
-	>$ refuel plane3 city3 fl0 fl1
-	>$ fly plane3 city3 city5 fl1 fl0
-	>$ refuel plane2 city3 fl0 fl1
-	>$ fly plane1 city0 city3 fl2 fl1
-	>$ board person2 plane1 city3
-	>$ fly plane1 city3 city2 fl1 fl0
-	>$ debark person2 plane1 city2
-
-	># Achieved Landmarks in Observations: 
-		[[at plane1 city2], [at plane3 city3], [at plane2 city4], [at plane1 city2, fuellevel plane1 fl2], [at person2 city2]]
-
-	+> Amount of Fact Landmarks: 13.0
-	+> Achieved Fact Landmarks: 5.0
-	+> Percentage: 0.3846154
-
----> Goal: (and (at person7 city5)  (at plane3 city5)  (at person1 city0)  (at person3 city1)  (at person2 city2)  (at person4 city4)  (at person5 city2)  (at person6 city1)  (at person8 city3) )
-		 #> Ordered Landmarks: 
-		 # at person7 city5 -> [[at person7 city5]]
-		 # at plane3 city5 -> [[at plane3 city3, fuellevel plane3 fl2], [at plane3 city5]]
-		 # at person1 city0 -> [[at person1 city0]]
-		 # at person3 city1 -> [[at person3 city1]]
-		 # at person2 city2 -> [[at person2 city2]]
-		 # at person4 city4 -> [[at person4 city4]]
-		 # at person5 city2 -> [[at plane1 city2], [at person5 city2]]
-		 # at person6 city1 -> [[at person6 city1]]
-		 # at person8 city3 -> [[at plane3 city3], [at person8 city3]]
-
-	>$ board person3 plane2 city4
-	>$ zoom plane2 city4 city1 fl5 fl4 fl3
-	>$ debark person3 plane2 city1
-	>$ zoom plane1 city2 city0 fl2 fl1 fl0
-	>$ zoom plane2 city1 city2 fl3 fl2 fl1
-	>$ board person6 plane2 city2
-	>$ fly plane2 city2 city1 fl1 fl0
-	>$ refuel plane1 city0 fl0 fl1
-	>$ fly plane1 city0 city5 fl1 fl0
-	>$ board person1 plane1 city5
-	>$ board person8 plane3 city5
-	>$ board person5 plane3 city5
-	>$ fly plane3 city5 city1 fl1 fl0
-	>$ board person7 plane3 city1
-	>$ refuel plane3 city1 fl0 fl1
-	>$ fly plane3 city1 city5 fl1 fl0
-	>$ debark person7 plane3 city5
-	>$ refuel plane1 city5 fl0 fl1
-	>$ debark person1 plane1 city0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ refuel plane2 city1 fl0 fl1
-	>$ fly plane2 city1 city2 fl1 fl0
-	>$ fly plane3 city2 city5 fl1 fl0
-	>$ refuel plane3 city5 fl0 fl1
-	>$ debark person8 plane3 city3
-	>$ board person4 plane2 city2
-	>$ refuel plane3 city3 fl0 fl1
-	>$ fly plane3 city3 city5 fl1 fl0
-	>$ refuel plane2 city3 fl0 fl1
-	>$ fly plane1 city0 city3 fl2 fl1
-	>$ board person2 plane1 city3
-	>$ fly plane1 city3 city2 fl1 fl0
-	>$ debark person2 plane1 city2
-
-	># Achieved Landmarks in Observations: 
-		[[at person7 city5], [at plane3 city5], [at plane1 city2], [at plane3 city3], [at person1 city0], [at plane3 city3, fuellevel plane3 fl2], [at person3 city1], [at person2 city2], [at person8 city3]]
-
-	+> Amount of Fact Landmarks: 12.0
-	+> Achieved Fact Landmarks: 9.0
-	+> Percentage: 0.75
+	+> Amount of Fact Landmarks: 1.0
+	+> Achieved Fact Landmarks: 0.0
+	+> Percentage: 0.0
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$ Filtered Goals $$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-$> (and (at person5 city5)  (at person2 city0)  (at person4 city2)  (at plane2 city2)  (at person3 city4)  (at person1 city1)  (at person6 city0)  (at person7 city3)  (at person8 city4) ): 0.5833333
-$> (and (at person3 city0)  (at plane2 city2)  (at person7 city0)  (at person1 city1)  (at person4 city3)  (at person2 city3)  (at person8 city1)  (at person5 city4)  (at person6 city2) ): 0.45454547
-$> (and (at person3 city1)  (at person5 city0)  (at plane2 city0)  (at person4 city3)  (at person2 city4)  (at person8 city2)  (at person1 city5)  (at person6 city1)  (at person7 city3) ): 0.41666666
-$> (and (at person6 city4)  (at person4 city0)  (at plane1 city0)  (at person3 city2)  (at person7 city4)  (at person8 city1)  (at person1 city5)  (at person2 city5)  (at person5 city1) ): 0.36363637
-$> (and (at person5 city3)  (at person6 city5)  (at plane1 city1)  (at person3 city0)  (at person2 city2)  (at person8 city0)  (at person1 city4)  (at person4 city3)  (at person7 city2) ): 0.3846154
-$> (and (at person7 city5)  (at plane3 city5)  (at person1 city0)  (at person3 city1)  (at person2 city2)  (at person4 city4)  (at person5 city2)  (at person6 city1)  (at person8 city3) ): 0.75
 
-real	0m4,160s
-user	0m3,296s
-sys	0m0,284s
+real	0m0,456s
+user	0m0,515s
+sys	0m0,104s
