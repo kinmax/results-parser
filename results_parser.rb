@@ -95,6 +95,19 @@ def all_results
         symbol_item = item.gsub("-", "_").to_sym
         result[symbol_item] = {}
         problem_counter = 0
+        goals = 0
+        landmarks = 0
+        percentages.each do |p|
+            observations[p] = 0
+            counter[p]["all"] = 0
+            thresholds.each do |t|
+                counter[p][t] = 0
+                seconds[p][:goalcompletion][t] = 0
+                accuracy[p][:goalcompletion][t] = 0
+                seconds[p][:uniqueness][t] = 0
+                accuracy[p][:uniqueness][t] = 0
+            end
+        end
         Dir.foreach("#{dataset_path}/#{item}") do |tar|
             if tar == "." || tar == ".." || tar == "README.md" || tar == ".gitignore" || tar.include?("FILTERED")
                 next

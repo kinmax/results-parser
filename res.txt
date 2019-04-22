@@ -1,68 +1,238 @@
 rm -rf domain.pddl template.pddl templateInitial.pddl obs.dat hyps.dat plan.png real_hyp.dat
-tar -jxvf /home/kingusmao/grupo/goal-plan-recognition-dataset/kitchen/kitchen_generic_hyp-0_full_11.tar.bz2
+tar -jxvf /home/kingusmao/grupo/goal-plan-recognition-dataset/easy-ipc-grid/easy-ipc-grid_p10-10-10_hyp-7_50_2.tar.bz2
 Parsed Domain file domain.pddl successfully
 Parsed Problem file templateInitial.pddl successfully
 
 Grounding...
 Grounding complete!
 
-# Initial state: 
+# Initial state: locked place_0_5, open place_4_9, open place_4_7, open place_7_2, open place_6_1, open place_2_8, locked place_2_7, open place_3_9, open place_6_9, locked place_5_2, open place_1_7, locked place_2_2, at key_0 place_0_0, open place_5_0, at key_1 place_9_0, open place_3_0, locked place_0_6, at key_5 place_9_0, open place_4_8, open place_7_3, open place_6_2, open place_1_6, open place_1_1, open place_5_1, open place_3_8, open place_0_0, open place_1_5, open place_7_6, open place_7_4, open place_6_3, open place_9_6, open place_8_4, open place_8_6, open place_4_1, open place_0_3, open place_7_7, open place_1_4, open place_7_5, open place_6_4, open place_5_3, at key_2 place_7_0, open place_2_5, open place_3_6, open place_9_7, open place_2_0, open place_3_1, open place_8_5, open place_4_2, open place_2_4, open place_6_7, open place_6_5, open place_9_0, open place_4_3, open place_5_4, open place_9_8, locked place_8_1, open place_8_2, open place_3_5, open place_0_1, open place_1_2, open place_6_8, open place_2_3, open place_5_5, open place_6_6, open place_9_1, at key_3 place_9_0, open place_4_4, open place_8_9, open place_3_4, open place_0_9, open place_9_9, at key_9 place_7_0, locked place_9_3, at key_8 place_7_0, open place_0_4, open place_4_0, open place_3_3, open place_9_4, at key_7 place_5_0, open place_5_6, open place_9_2, open place_5_8, open place_4_5, at key_6 place_2_0, open place_7_0, open place_8_8, open place_1_9, open place_8_0, open place_7_8, open place_0_8, locked place_8_3, open place_1_0, at key_4 place_6_0, open place_5_9, open place_2_1, open place_9_5, open place_3_2, open place_5_7, at-robot place_0_0, open place_4_6, open place_7_1, open place_8_7, open place_0_7, locked place_3_7, open place_1_8, locked place_2_6, open place_7_9, open place_0_2, open place_1_3, open place_2_9, open place_6_0
 
 # Observations: 
-	>$ take plate
-	>$ take bread
-	>$ take cheese
+	>$ move place_2_0 place_3_0
+	>$ move place_3_0 place_4_0
+	>$ move place_5_0 place_6_0
+	>$ move place_7_1 place_7_2
+	>$ move place_7_2 place_7_3
+	>$ move place_7_3 place_7_4
+	>$ move place_7_4 place_7_5
+	>$ move place_7_5 place_7_6
 
----> Goal: (and (made_breakfast) )
+---> Goal: (and (at-robot place_0_9) )
 		 #> Ordered Landmarks: 
-		 # made_breakfast -> [[used toaster, taken bread], [made_toast, taken butter, taken knife], [taken cereal, taken milk, taken bowl], [taken spoon, made_cereals, made_buttered_toast], [made_breakfast]]
+		 # at-robot place_0_9 -> [[open place_0_8], [open place_0_9, at-robot place_0_8], [at-robot place_0_9]]
 
-	>$ take plate
-	>$ take bread
-	>$ take cheese
+	>$ move place_2_0 place_3_0
+	>$ move place_3_0 place_4_0
+	>$ move place_5_0 place_6_0
+	>$ move place_7_1 place_7_2
+	>$ move place_7_2 place_7_3
+	>$ move place_7_3 place_7_4
+	>$ move place_7_4 place_7_5
+	>$ move place_7_5 place_7_6
 
 	># Achieved Landmarks in Observations: 
-		[]
+		[[open place_0_8]]
+
+	+> Amount of Fact Landmarks: 3.0
+	+> Achieved Fact Landmarks: 1.0
+	+> Percentage: 0.33333334
+
+---> Goal: (and (at-robot place_1_9) )
+		 #> Ordered Landmarks: 
+		 # at-robot place_1_9 -> [[open place_1_8], [at-robot place_1_8, open place_1_9], [at-robot place_1_9]]
+
+	>$ move place_2_0 place_3_0
+	>$ move place_3_0 place_4_0
+	>$ move place_5_0 place_6_0
+	>$ move place_7_1 place_7_2
+	>$ move place_7_2 place_7_3
+	>$ move place_7_3 place_7_4
+	>$ move place_7_4 place_7_5
+	>$ move place_7_5 place_7_6
+
+	># Achieved Landmarks in Observations: 
+		[[open place_1_8]]
+
+	+> Amount of Fact Landmarks: 3.0
+	+> Achieved Fact Landmarks: 1.0
+	+> Percentage: 0.33333334
+
+---> Goal: (and (at-robot place_2_9) )
+		 #> Ordered Landmarks: 
+		 # at-robot place_2_9 -> [[open place_2_8], [open place_2_9, at-robot place_2_8], [at-robot place_2_9]]
+
+	>$ move place_2_0 place_3_0
+	>$ move place_3_0 place_4_0
+	>$ move place_5_0 place_6_0
+	>$ move place_7_1 place_7_2
+	>$ move place_7_2 place_7_3
+	>$ move place_7_3 place_7_4
+	>$ move place_7_4 place_7_5
+	>$ move place_7_5 place_7_6
+
+	># Achieved Landmarks in Observations: 
+		[[open place_2_8]]
+
+	+> Amount of Fact Landmarks: 3.0
+	+> Achieved Fact Landmarks: 1.0
+	+> Percentage: 0.33333334
+
+---> Goal: (and (at-robot place_3_9) )
+		 #> Ordered Landmarks: 
+		 # at-robot place_3_9 -> [[open place_3_8], [open place_3_9, at-robot place_3_8], [at-robot place_3_9]]
+
+	>$ move place_2_0 place_3_0
+	>$ move place_3_0 place_4_0
+	>$ move place_5_0 place_6_0
+	>$ move place_7_1 place_7_2
+	>$ move place_7_2 place_7_3
+	>$ move place_7_3 place_7_4
+	>$ move place_7_4 place_7_5
+	>$ move place_7_5 place_7_6
+
+	># Achieved Landmarks in Observations: 
+		[[open place_3_8]]
+
+	+> Amount of Fact Landmarks: 3.0
+	+> Achieved Fact Landmarks: 1.0
+	+> Percentage: 0.33333334
+
+---> Goal: (and (at-robot place_4_9) )
+		 #> Ordered Landmarks: 
+		 # at-robot place_4_9 -> [[open place_4_6], [at-robot place_4_6, open place_4_7], [open place_4_8, at-robot place_4_7], [open place_4_9, at-robot place_4_8], [at-robot place_4_9]]
+
+	>$ move place_2_0 place_3_0
+	>$ move place_3_0 place_4_0
+	>$ move place_5_0 place_6_0
+	>$ move place_7_1 place_7_2
+	>$ move place_7_2 place_7_3
+	>$ move place_7_3 place_7_4
+	>$ move place_7_4 place_7_5
+	>$ move place_7_5 place_7_6
+
+	># Achieved Landmarks in Observations: 
+		[[open place_4_6]]
 
 	+> Amount of Fact Landmarks: 5.0
-	+> Achieved Fact Landmarks: 0.0
-	+> Percentage: 0.0
+	+> Achieved Fact Landmarks: 1.0
+	+> Percentage: 0.2
 
----> Goal: (and (lunch_packed) )
+---> Goal: (and (at-robot place_5_9) )
 		 #> Ordered Landmarks: 
-		 # lunch_packed -> [[taken lunch_bag], [lunch_packed]]
+		 # at-robot place_5_9 -> [[open place_5_6], [at-robot place_5_6, open place_5_7], [open place_5_8, at-robot place_5_7], [open place_5_9, at-robot place_5_8], [at-robot place_5_9]]
 
-	>$ take plate
-	>$ take bread
-	>$ take cheese
+	>$ move place_2_0 place_3_0
+	>$ move place_3_0 place_4_0
+	>$ move place_5_0 place_6_0
+	>$ move place_7_1 place_7_2
+	>$ move place_7_2 place_7_3
+	>$ move place_7_3 place_7_4
+	>$ move place_7_4 place_7_5
+	>$ move place_7_5 place_7_6
 
 	># Achieved Landmarks in Observations: 
-		[]
+		[[open place_5_6]]
 
-	+> Amount of Fact Landmarks: 2.0
-	+> Achieved Fact Landmarks: 0.0
-	+> Percentage: 0.0
+	+> Amount of Fact Landmarks: 5.0
+	+> Achieved Fact Landmarks: 1.0
+	+> Percentage: 0.2
 
----> Goal: (and (made_dinner) )
+---> Goal: (and (at-robot place_6_9) )
 		 #> Ordered Landmarks: 
-		 # made_dinner -> [[made_dinner]]
+		 # at-robot place_6_9 -> [[open place_6_7], [open place_6_8, at-robot place_6_7], [open place_6_9, at-robot place_6_8], [at-robot place_6_9]]
 
-	>$ take plate
-	>$ take bread
-	>$ take cheese
+	>$ move place_2_0 place_3_0
+	>$ move place_3_0 place_4_0
+	>$ move place_5_0 place_6_0
+	>$ move place_7_1 place_7_2
+	>$ move place_7_2 place_7_3
+	>$ move place_7_3 place_7_4
+	>$ move place_7_4 place_7_5
+	>$ move place_7_5 place_7_6
 
 	># Achieved Landmarks in Observations: 
-		[]
+		[[open place_6_7]]
 
-	+> Amount of Fact Landmarks: 1.0
-	+> Achieved Fact Landmarks: 0.0
-	+> Percentage: 0.0
+	+> Amount of Fact Landmarks: 4.0
+	+> Achieved Fact Landmarks: 1.0
+	+> Percentage: 0.25
+
+---> Goal: (and (at-robot place_7_9) )
+		 #> Ordered Landmarks: 
+		 # at-robot place_7_9 -> [[open place_7_7], [open place_7_8, at-robot place_7_7], [open place_7_9, at-robot place_7_8], [at-robot place_7_9]]
+
+	>$ move place_2_0 place_3_0
+	>$ move place_3_0 place_4_0
+	>$ move place_5_0 place_6_0
+	>$ move place_7_1 place_7_2
+	>$ move place_7_2 place_7_3
+	>$ move place_7_3 place_7_4
+	>$ move place_7_4 place_7_5
+	>$ move place_7_5 place_7_6
+
+	># Achieved Landmarks in Observations: 
+		[[open place_7_7]]
+
+	+> Amount of Fact Landmarks: 4.0
+	+> Achieved Fact Landmarks: 1.0
+	+> Percentage: 0.25
+
+---> Goal: (and (at-robot place_8_9) )
+		 #> Ordered Landmarks: 
+		 # at-robot place_8_9 -> [[open place_8_8], [at-robot place_8_8, open place_8_9], [at-robot place_8_9]]
+
+	>$ move place_2_0 place_3_0
+	>$ move place_3_0 place_4_0
+	>$ move place_5_0 place_6_0
+	>$ move place_7_1 place_7_2
+	>$ move place_7_2 place_7_3
+	>$ move place_7_3 place_7_4
+	>$ move place_7_4 place_7_5
+	>$ move place_7_5 place_7_6
+
+	># Achieved Landmarks in Observations: 
+		[[open place_8_8]]
+
+	+> Amount of Fact Landmarks: 3.0
+	+> Achieved Fact Landmarks: 1.0
+	+> Percentage: 0.33333334
+
+---> Goal: (and (at-robot place_9_9) )
+		 #> Ordered Landmarks: 
+		 # at-robot place_9_9 -> [[open place_9_8], [at-robot place_9_8, open place_9_9], [at-robot place_9_9]]
+
+	>$ move place_2_0 place_3_0
+	>$ move place_3_0 place_4_0
+	>$ move place_5_0 place_6_0
+	>$ move place_7_1 place_7_2
+	>$ move place_7_2 place_7_3
+	>$ move place_7_3 place_7_4
+	>$ move place_7_4 place_7_5
+	>$ move place_7_5 place_7_6
+
+	># Achieved Landmarks in Observations: 
+		[[open place_9_8]]
+
+	+> Amount of Fact Landmarks: 3.0
+	+> Achieved Fact Landmarks: 1.0
+	+> Percentage: 0.33333334
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$ Filtered Goals $$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
+$> (and (at-robot place_0_9) ): 0.33333334
+$> (and (at-robot place_1_9) ): 0.33333334
+$> (and (at-robot place_2_9) ): 0.33333334
+$> (and (at-robot place_3_9) ): 0.33333334
+$> (and (at-robot place_4_9) ): 0.2
+$> (and (at-robot place_5_9) ): 0.2
+$> (and (at-robot place_6_9) ): 0.25
+$> (and (at-robot place_7_9) ): 0.25
+$> (and (at-robot place_8_9) ): 0.33333334
+$> (and (at-robot place_9_9) ): 0.33333334
 
-real	0m0,456s
-user	0m0,515s
-sys	0m0,104s
+real	0m3,212s
+user	0m1,960s
+sys	0m0,426s
