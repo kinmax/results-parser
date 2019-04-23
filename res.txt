@@ -1,238 +1,489 @@
 rm -rf domain.pddl template.pddl templateInitial.pddl obs.dat hyps.dat plan.png real_hyp.dat
-tar -jxvf /home/kingusmao/grupo/goal-plan-recognition-dataset/easy-ipc-grid/easy-ipc-grid_p10-10-10_hyp-7_50_2.tar.bz2
+tar -jxvf /home/kin/grupo/goal-plan-recognition-dataset/satellite/satellite_p06_hyp-4_full.tar.bz2
 Parsed Domain file domain.pddl successfully
 Parsed Problem file templateInitial.pddl successfully
 
 Grounding...
 Grounding complete!
 
-# Initial state: locked place_0_5, open place_4_9, open place_4_7, open place_7_2, open place_6_1, open place_2_8, locked place_2_7, open place_3_9, open place_6_9, locked place_5_2, open place_1_7, locked place_2_2, at key_0 place_0_0, open place_5_0, at key_1 place_9_0, open place_3_0, locked place_0_6, at key_5 place_9_0, open place_4_8, open place_7_3, open place_6_2, open place_1_6, open place_1_1, open place_5_1, open place_3_8, open place_0_0, open place_1_5, open place_7_6, open place_7_4, open place_6_3, open place_9_6, open place_8_4, open place_8_6, open place_4_1, open place_0_3, open place_7_7, open place_1_4, open place_7_5, open place_6_4, open place_5_3, at key_2 place_7_0, open place_2_5, open place_3_6, open place_9_7, open place_2_0, open place_3_1, open place_8_5, open place_4_2, open place_2_4, open place_6_7, open place_6_5, open place_9_0, open place_4_3, open place_5_4, open place_9_8, locked place_8_1, open place_8_2, open place_3_5, open place_0_1, open place_1_2, open place_6_8, open place_2_3, open place_5_5, open place_6_6, open place_9_1, at key_3 place_9_0, open place_4_4, open place_8_9, open place_3_4, open place_0_9, open place_9_9, at key_9 place_7_0, locked place_9_3, at key_8 place_7_0, open place_0_4, open place_4_0, open place_3_3, open place_9_4, at key_7 place_5_0, open place_5_6, open place_9_2, open place_5_8, open place_4_5, at key_6 place_2_0, open place_7_0, open place_8_8, open place_1_9, open place_8_0, open place_7_8, open place_0_8, locked place_8_3, open place_1_0, at key_4 place_6_0, open place_5_9, open place_2_1, open place_9_5, open place_3_2, open place_5_7, at-robot place_0_0, open place_4_6, open place_7_1, open place_8_7, open place_0_7, locked place_3_7, open place_1_8, locked place_2_6, open place_7_9, open place_0_2, open place_1_3, open place_2_9, open place_6_0
+$$$> Calculating landmark uniqueness value for all candidate goals: 
+
+(and (have_image star6 image2)  (have_image star16 infrared3)  (have_image star7 image4)  (have_image phenomenon13 image4)  (pointing satellite3 planet5)  (have_image phenomenon14 image4)  (pointing satellite4 planet9)  (have_image planet5 image4)  (pointing satellite2 planet10) )
+	[have_image star6 image2] = 1.0
+	[have_image star16 infrared3] = 1.0
+	[have_image phenomenon13 image4] = 0.5
+	[have_image star7 image4] = 0.16666667
+	[pointing satellite3 planet5] = 0.5
+	[have_image phenomenon14 image4] = 0.33333334
+	[pointing satellite4 planet9] = 0.5
+	[have_image planet5 image4] = 1.0
+	[pointing satellite3 groundstation3] = 0.16666667
+	[pointing satellite2 star1] = 0.2
+	[pointing satellite2 planet10] = 0.5
+	[pointing satellite4 planet10] = 0.16666667
+(and (have_image star7 image2)  (have_image phenomenon8 image2)  (have_image star15 infrared0)  (have_image star7 image4)  (pointing satellite3 planet5)  (pointing satellite4 planet9)  (have_image planet5 image2)  (pointing satellite2 planet10)  (have_image phenomenon8 image4) )
+	[have_image phenomenon8 image2] = 0.5
+	[have_image star7 image2] = 0.33333334
+	[have_image star15 infrared0] = 1.0
+	[have_image star7 image4] = 0.16666667
+	[pointing satellite3 planet5] = 0.5
+	[pointing satellite4 planet9] = 0.5
+	[pointing satellite3 groundstation3] = 0.16666667
+	[have_image planet5 image2] = 1.0
+	[pointing satellite2 star1] = 0.2
+	[pointing satellite2 planet10] = 0.5
+	[have_image phenomenon8 image4] = 0.33333334
+	[pointing satellite4 planet10] = 0.16666667
+(and (have_image planet9 image4)  (pointing satellite4 planet5)  (have_image star7 image4)  (have_image star12 infrared3)  (have_image phenomenon14 image4)  (pointing satellite3 planet9)  (pointing satellite1 planet10)  (have_image star15 image2) )
+	[have_image planet9 image4] = 1.0
+	[pointing satellite4 planet5] = 0.33333334
+	[have_image star7 image4] = 0.16666667
+	[have_image phenomenon14 image4] = 0.33333334
+	[have_image star12 infrared3] = 1.0
+	[pointing satellite1 star4] = 0.25
+	[pointing satellite3 groundstation3] = 0.16666667
+	[pointing satellite3 planet9] = 0.5
+	[pointing satellite1 planet10] = 0.5
+	[pointing satellite4 planet10] = 0.16666667
+	[have_image star15 image2] = 1.0
+(and (have_image star7 image2)  (pointing satellite4 planet5)  (have_image star11 infrared0)  (have_image phenomenon13 image2)  (pointing satellite3 planet9)  (have_image star2 image4)  (pointing satellite1 planet10)  (have_image phenomenon8 image4)  (have_image planet9 image2) )
+	[have_image star7 image2] = 0.33333334
+	[pointing satellite4 planet5] = 0.33333334
+	[have_image star11 infrared0] = 1.0
+	[have_image phenomenon13 image2] = 1.0
+	[pointing satellite1 star4] = 0.25
+	[pointing satellite3 groundstation3] = 0.16666667
+	[pointing satellite3 planet9] = 0.5
+	[have_image star2 image4] = 1.0
+	[pointing satellite1 planet10] = 0.5
+	[have_image phenomenon8 image4] = 0.33333334
+	[pointing satellite4 planet10] = 0.16666667
+	[have_image planet9 image2] = 1.0
+(and (have_image star7 infrared3)  (have_image phenomenon8 image2)  (have_image star7 image4)  (have_image planet10 image4)  (pointing satellite2 planet5)  (have_image star11 image2)  (have_image phenomenon14 image2)  (pointing satellite1 planet9)  (pointing satellite3 planet10) )
+	[have_image star7 infrared3] = 1.0
+	[have_image phenomenon8 image2] = 0.5
+	[have_image planet10 image4] = 1.0
+	[pointing satellite1 star4] = 0.25
+	[have_image star11 image2] = 0.5
+	[pointing satellite1 planet9] = 0.5
+	[pointing satellite3 planet10] = 0.5
+	[have_image star7 image4] = 0.16666667
+	[pointing satellite2 planet5] = 0.5
+	[pointing satellite3 groundstation3] = 0.16666667
+	[have_image phenomenon14 image2] = 0.5
+	[pointing satellite3 planet10, pointing satellite4 planet10] = 1.0
+	[pointing satellite2 star1] = 0.2
+(and (have_image star7 image2)  (have_image planet10 image2)  (have_image star6 infrared0)  (have_image star7 image4)  (pointing satellite2 planet5)  (have_image phenomenon14 image2)  (pointing satellite1 planet9)  (pointing satellite3 planet10)  (have_image phenomenon8 image4) )
+	[have_image star6 infrared0] = 0.5
+	[have_image planet10 image2] = 0.5
+	[pointing satellite1 star4] = 0.25
+	[pointing satellite1 planet9] = 0.5
+	[have_image phenomenon8 image4] = 0.33333334
+	[pointing satellite3 planet10] = 0.5
+	[pointing satellite4 planet10] = 0.16666667
+	[have_image star7 image2] = 0.33333334
+	[have_image star7 image4] = 0.16666667
+	[pointing satellite2 planet5] = 0.5
+	[have_image phenomenon14 image2] = 0.5
+	[pointing satellite3 groundstation3] = 0.16666667
+	[pointing satellite2 star1] = 0.2
+(and (have_image planet10 image2)  (have_image star6 infrared0)  (pointing satellite4 planet5)  (have_image star7 image4)  (have_image phenomenon13 image4)  (have_image phenomenon14 image4)  (pointing satellite0 planet10)  (have_image star11 image2)  (pointing satellite2 planet9) )
+	[have_image star6 infrared0] = 0.5
+	[have_image planet10 image2] = 0.5
+	[have_image phenomenon13 image4] = 0.5
+	[pointing satellite4 planet5] = 0.33333334
+	[have_image star7 image4] = 0.16666667
+	[pointing satellite0 star0] = 1.0
+	[have_image phenomenon14 image4] = 0.33333334
+	[have_image star11 image2] = 0.5
+	[pointing satellite0 planet10] = 1.0
+	[pointing satellite2 planet9] = 1.0
+	[pointing satellite2 star1] = 0.2
+	[pointing satellite4 planet10] = 0.16666667
+
+$$$> Computing achieved landmarks from observations for all candidate goals: 
+
+# Initial state: pointing satellite0 star0, power_avail satellite0, pointing satellite1 star4, power_avail satellite2, pointing satellite3 groundstation3, power_avail satellite1, power_avail satellite4, pointing satellite2 star1, power_avail satellite3, pointing satellite4 planet10
 
 # Observations: 
-	>$ move place_2_0 place_3_0
-	>$ move place_3_0 place_4_0
-	>$ move place_5_0 place_6_0
-	>$ move place_7_1 place_7_2
-	>$ move place_7_2 place_7_3
-	>$ move place_7_3 place_7_4
-	>$ move place_7_4 place_7_5
-	>$ move place_7_5 place_7_6
+	>$ turn_to satellite4 planet5 planet10
+	>$ turn_to satellite2 planet9 star1
+	>$ turn_to satellite0 planet10 star0
+	>$ turn_to satellite3 star4 groundstation3
+	>$ turn_to satellite1 groundstation3 star4
+	>$ switch_on instrument2 satellite1
+	>$ calibrate satellite1 instrument2 groundstation3
+	>$ turn_to satellite1 star6 groundstation3
+	>$ take_image satellite1 star6 instrument2 infrared0
+	>$ turn_to satellite1 planet10 star6
+	>$ take_image satellite1 planet10 instrument2 image2
+	>$ turn_to satellite1 star11 planet10
+	>$ take_image satellite1 star11 instrument2 image2
+	>$ switch_on instrument7 satellite3
+	>$ calibrate satellite3 instrument7 star4
+	>$ turn_to satellite3 star7 star4
+	>$ take_image satellite3 star7 instrument7 image4
+	>$ turn_to satellite3 phenomenon13 star7
+	>$ take_image satellite3 phenomenon13 instrument7 image4
+	>$ turn_to satellite3 phenomenon14 phenomenon13
+	>$ take_image satellite3 phenomenon14 instrument7 image4
 
----> Goal: (and (at-robot place_0_9) )
+---> Goal: (and (have_image star6 image2)  (have_image star16 infrared3)  (have_image star7 image4)  (have_image phenomenon13 image4)  (pointing satellite3 planet5)  (have_image phenomenon14 image4)  (pointing satellite4 planet9)  (have_image planet5 image4)  (pointing satellite2 planet10) )
 		 #> Ordered Landmarks: 
-		 # at-robot place_0_9 -> [[open place_0_8], [open place_0_9, at-robot place_0_8], [at-robot place_0_9]]
+		 # have_image star6 image2 -> [[have_image star6 image2]]
+		 # have_image star16 infrared3 -> [[have_image star16 infrared3]]
+		 # have_image phenomenon13 image4 -> [[have_image phenomenon13 image4]]
+		 # have_image star7 image4 -> [[have_image star7 image4]]
+		 # pointing satellite3 planet5 -> [[pointing satellite3 groundstation3], [pointing satellite3 planet5]]
+		 # have_image phenomenon14 image4 -> [[have_image phenomenon14 image4]]
+		 # pointing satellite4 planet9 -> [[pointing satellite4 planet10], [pointing satellite4 planet9]]
+		 # have_image planet5 image4 -> [[pointing satellite3 groundstation3], [pointing satellite3 planet5], [have_image planet5 image4]]
+		 # pointing satellite2 planet10 -> [[pointing satellite2 star1], [pointing satellite2 planet10]]
 
-	>$ move place_2_0 place_3_0
-	>$ move place_3_0 place_4_0
-	>$ move place_5_0 place_6_0
-	>$ move place_7_1 place_7_2
-	>$ move place_7_2 place_7_3
-	>$ move place_7_3 place_7_4
-	>$ move place_7_4 place_7_5
-	>$ move place_7_5 place_7_6
+	>$ turn_to satellite4 planet5 planet10
+	>$ turn_to satellite2 planet9 star1
+	>$ turn_to satellite0 planet10 star0
+	>$ turn_to satellite3 star4 groundstation3
+	>$ turn_to satellite1 groundstation3 star4
+	>$ switch_on instrument2 satellite1
+	>$ calibrate satellite1 instrument2 groundstation3
+	>$ turn_to satellite1 star6 groundstation3
+	>$ take_image satellite1 star6 instrument2 infrared0
+	>$ turn_to satellite1 planet10 star6
+	>$ take_image satellite1 planet10 instrument2 image2
+	>$ turn_to satellite1 star11 planet10
+	>$ take_image satellite1 star11 instrument2 image2
+	>$ switch_on instrument7 satellite3
+	>$ calibrate satellite3 instrument7 star4
+	>$ turn_to satellite3 star7 star4
+	>$ take_image satellite3 star7 instrument7 image4
+	>$ turn_to satellite3 phenomenon13 star7
+	>$ take_image satellite3 phenomenon13 instrument7 image4
+	>$ turn_to satellite3 phenomenon14 phenomenon13
+	>$ take_image satellite3 phenomenon14 instrument7 image4
 
 	># Achieved Landmarks in Observations: 
-		[[open place_0_8]]
+		[[have_image star7 image4], [have_image phenomenon13 image4], [have_image phenomenon14 image4], [pointing satellite3 groundstation3], [pointing satellite2 star1], [pointing satellite4 planet10]]
 
-	+> Amount of Fact Landmarks: 3.0
-	+> Achieved Fact Landmarks: 1.0
-	+> Percentage: 0.33333334
-
----> Goal: (and (at-robot place_1_9) )
+---> Goal: (and (have_image star7 image2)  (have_image phenomenon8 image2)  (have_image star15 infrared0)  (have_image star7 image4)  (pointing satellite3 planet5)  (pointing satellite4 planet9)  (have_image planet5 image2)  (pointing satellite2 planet10)  (have_image phenomenon8 image4) )
 		 #> Ordered Landmarks: 
-		 # at-robot place_1_9 -> [[open place_1_8], [at-robot place_1_8, open place_1_9], [at-robot place_1_9]]
+		 # have_image phenomenon8 image2 -> [[have_image phenomenon8 image2]]
+		 # have_image star7 image2 -> [[have_image star7 image2]]
+		 # have_image star15 infrared0 -> [[have_image star15 infrared0]]
+		 # have_image star7 image4 -> [[have_image star7 image4]]
+		 # pointing satellite3 planet5 -> [[pointing satellite3 groundstation3], [pointing satellite3 planet5]]
+		 # pointing satellite4 planet9 -> [[pointing satellite4 planet10], [pointing satellite4 planet9]]
+		 # have_image planet5 image2 -> [[have_image planet5 image2]]
+		 # pointing satellite2 planet10 -> [[pointing satellite2 star1], [pointing satellite2 planet10]]
+		 # have_image phenomenon8 image4 -> [[have_image phenomenon8 image4]]
 
-	>$ move place_2_0 place_3_0
-	>$ move place_3_0 place_4_0
-	>$ move place_5_0 place_6_0
-	>$ move place_7_1 place_7_2
-	>$ move place_7_2 place_7_3
-	>$ move place_7_3 place_7_4
-	>$ move place_7_4 place_7_5
-	>$ move place_7_5 place_7_6
+	>$ turn_to satellite4 planet5 planet10
+	>$ turn_to satellite2 planet9 star1
+	>$ turn_to satellite0 planet10 star0
+	>$ turn_to satellite3 star4 groundstation3
+	>$ turn_to satellite1 groundstation3 star4
+	>$ switch_on instrument2 satellite1
+	>$ calibrate satellite1 instrument2 groundstation3
+	>$ turn_to satellite1 star6 groundstation3
+	>$ take_image satellite1 star6 instrument2 infrared0
+	>$ turn_to satellite1 planet10 star6
+	>$ take_image satellite1 planet10 instrument2 image2
+	>$ turn_to satellite1 star11 planet10
+	>$ take_image satellite1 star11 instrument2 image2
+	>$ switch_on instrument7 satellite3
+	>$ calibrate satellite3 instrument7 star4
+	>$ turn_to satellite3 star7 star4
+	>$ take_image satellite3 star7 instrument7 image4
+	>$ turn_to satellite3 phenomenon13 star7
+	>$ take_image satellite3 phenomenon13 instrument7 image4
+	>$ turn_to satellite3 phenomenon14 phenomenon13
+	>$ take_image satellite3 phenomenon14 instrument7 image4
 
 	># Achieved Landmarks in Observations: 
-		[[open place_1_8]]
+		[[have_image star7 image4], [pointing satellite3 groundstation3], [pointing satellite2 star1], [pointing satellite4 planet10]]
 
-	+> Amount of Fact Landmarks: 3.0
-	+> Achieved Fact Landmarks: 1.0
-	+> Percentage: 0.33333334
-
----> Goal: (and (at-robot place_2_9) )
+---> Goal: (and (have_image planet9 image4)  (pointing satellite4 planet5)  (have_image star7 image4)  (have_image star12 infrared3)  (have_image phenomenon14 image4)  (pointing satellite3 planet9)  (pointing satellite1 planet10)  (have_image star15 image2) )
 		 #> Ordered Landmarks: 
-		 # at-robot place_2_9 -> [[open place_2_8], [open place_2_9, at-robot place_2_8], [at-robot place_2_9]]
+		 # have_image planet9 image4 -> [[have_image planet9 image4]]
+		 # pointing satellite4 planet5 -> [[pointing satellite4 planet10], [pointing satellite4 planet5]]
+		 # have_image star7 image4 -> [[have_image star7 image4]]
+		 # have_image phenomenon14 image4 -> [[have_image phenomenon14 image4]]
+		 # have_image star12 infrared3 -> [[have_image star12 infrared3]]
+		 # pointing satellite3 planet9 -> [[pointing satellite3 groundstation3], [pointing satellite3 planet9]]
+		 # pointing satellite1 planet10 -> [[pointing satellite1 star4], [pointing satellite1 planet10]]
+		 # have_image star15 image2 -> [[have_image star15 image2]]
 
-	>$ move place_2_0 place_3_0
-	>$ move place_3_0 place_4_0
-	>$ move place_5_0 place_6_0
-	>$ move place_7_1 place_7_2
-	>$ move place_7_2 place_7_3
-	>$ move place_7_3 place_7_4
-	>$ move place_7_4 place_7_5
-	>$ move place_7_5 place_7_6
+	>$ turn_to satellite4 planet5 planet10
+	>$ turn_to satellite2 planet9 star1
+	>$ turn_to satellite0 planet10 star0
+	>$ turn_to satellite3 star4 groundstation3
+	>$ turn_to satellite1 groundstation3 star4
+	>$ switch_on instrument2 satellite1
+	>$ calibrate satellite1 instrument2 groundstation3
+	>$ turn_to satellite1 star6 groundstation3
+	>$ take_image satellite1 star6 instrument2 infrared0
+	>$ turn_to satellite1 planet10 star6
+	>$ take_image satellite1 planet10 instrument2 image2
+	>$ turn_to satellite1 star11 planet10
+	>$ take_image satellite1 star11 instrument2 image2
+	>$ switch_on instrument7 satellite3
+	>$ calibrate satellite3 instrument7 star4
+	>$ turn_to satellite3 star7 star4
+	>$ take_image satellite3 star7 instrument7 image4
+	>$ turn_to satellite3 phenomenon13 star7
+	>$ take_image satellite3 phenomenon13 instrument7 image4
+	>$ turn_to satellite3 phenomenon14 phenomenon13
+	>$ take_image satellite3 phenomenon14 instrument7 image4
 
 	># Achieved Landmarks in Observations: 
-		[[open place_2_8]]
+		[[pointing satellite4 planet5], [have_image star7 image4], [pointing satellite1 star4], [have_image phenomenon14 image4], [pointing satellite3 groundstation3], [pointing satellite1 planet10], [pointing satellite4 planet10]]
 
-	+> Amount of Fact Landmarks: 3.0
-	+> Achieved Fact Landmarks: 1.0
-	+> Percentage: 0.33333334
-
----> Goal: (and (at-robot place_3_9) )
+---> Goal: (and (have_image star7 image2)  (pointing satellite4 planet5)  (have_image star11 infrared0)  (have_image phenomenon13 image2)  (pointing satellite3 planet9)  (have_image star2 image4)  (pointing satellite1 planet10)  (have_image phenomenon8 image4)  (have_image planet9 image2) )
 		 #> Ordered Landmarks: 
-		 # at-robot place_3_9 -> [[open place_3_8], [open place_3_9, at-robot place_3_8], [at-robot place_3_9]]
+		 # have_image star7 image2 -> [[have_image star7 image2]]
+		 # pointing satellite4 planet5 -> [[pointing satellite4 planet10], [pointing satellite4 planet5]]
+		 # have_image star11 infrared0 -> [[have_image star11 infrared0]]
+		 # have_image phenomenon13 image2 -> [[have_image phenomenon13 image2]]
+		 # pointing satellite3 planet9 -> [[pointing satellite3 groundstation3], [pointing satellite3 planet9]]
+		 # have_image star2 image4 -> [[have_image star2 image4]]
+		 # pointing satellite1 planet10 -> [[pointing satellite1 star4], [pointing satellite1 planet10]]
+		 # have_image phenomenon8 image4 -> [[have_image phenomenon8 image4]]
+		 # have_image planet9 image2 -> [[have_image planet9 image2]]
 
-	>$ move place_2_0 place_3_0
-	>$ move place_3_0 place_4_0
-	>$ move place_5_0 place_6_0
-	>$ move place_7_1 place_7_2
-	>$ move place_7_2 place_7_3
-	>$ move place_7_3 place_7_4
-	>$ move place_7_4 place_7_5
-	>$ move place_7_5 place_7_6
+	>$ turn_to satellite4 planet5 planet10
+	>$ turn_to satellite2 planet9 star1
+	>$ turn_to satellite0 planet10 star0
+	>$ turn_to satellite3 star4 groundstation3
+	>$ turn_to satellite1 groundstation3 star4
+	>$ switch_on instrument2 satellite1
+	>$ calibrate satellite1 instrument2 groundstation3
+	>$ turn_to satellite1 star6 groundstation3
+	>$ take_image satellite1 star6 instrument2 infrared0
+	>$ turn_to satellite1 planet10 star6
+	>$ take_image satellite1 planet10 instrument2 image2
+	>$ turn_to satellite1 star11 planet10
+	>$ take_image satellite1 star11 instrument2 image2
+	>$ switch_on instrument7 satellite3
+	>$ calibrate satellite3 instrument7 star4
+	>$ turn_to satellite3 star7 star4
+	>$ take_image satellite3 star7 instrument7 image4
+	>$ turn_to satellite3 phenomenon13 star7
+	>$ take_image satellite3 phenomenon13 instrument7 image4
+	>$ turn_to satellite3 phenomenon14 phenomenon13
+	>$ take_image satellite3 phenomenon14 instrument7 image4
 
 	># Achieved Landmarks in Observations: 
-		[[open place_3_8]]
+		[[pointing satellite4 planet5], [pointing satellite1 star4], [pointing satellite3 groundstation3], [pointing satellite1 planet10], [pointing satellite4 planet10]]
 
-	+> Amount of Fact Landmarks: 3.0
-	+> Achieved Fact Landmarks: 1.0
-	+> Percentage: 0.33333334
-
----> Goal: (and (at-robot place_4_9) )
+---> Goal: (and (have_image star7 infrared3)  (have_image phenomenon8 image2)  (have_image star7 image4)  (have_image planet10 image4)  (pointing satellite2 planet5)  (have_image star11 image2)  (have_image phenomenon14 image2)  (pointing satellite1 planet9)  (pointing satellite3 planet10) )
 		 #> Ordered Landmarks: 
-		 # at-robot place_4_9 -> [[open place_4_6], [at-robot place_4_6, open place_4_7], [open place_4_8, at-robot place_4_7], [open place_4_9, at-robot place_4_8], [at-robot place_4_9]]
+		 # have_image star7 infrared3 -> [[have_image star7 infrared3]]
+		 # have_image phenomenon8 image2 -> [[have_image phenomenon8 image2]]
+		 # have_image star7 image4 -> [[have_image star7 image4]]
+		 # have_image planet10 image4 -> [[pointing satellite3 groundstation3], [pointing satellite3 planet10, pointing satellite4 planet10], [have_image planet10 image4]]
+		 # pointing satellite2 planet5 -> [[pointing satellite2 star1], [pointing satellite2 planet5]]
+		 # have_image star11 image2 -> [[have_image star11 image2]]
+		 # have_image phenomenon14 image2 -> [[have_image phenomenon14 image2]]
+		 # pointing satellite1 planet9 -> [[pointing satellite1 star4], [pointing satellite1 planet9]]
+		 # pointing satellite3 planet10 -> [[pointing satellite3 groundstation3], [pointing satellite3 planet10]]
 
-	>$ move place_2_0 place_3_0
-	>$ move place_3_0 place_4_0
-	>$ move place_5_0 place_6_0
-	>$ move place_7_1 place_7_2
-	>$ move place_7_2 place_7_3
-	>$ move place_7_3 place_7_4
-	>$ move place_7_4 place_7_5
-	>$ move place_7_5 place_7_6
+	>$ turn_to satellite4 planet5 planet10
+	>$ turn_to satellite2 planet9 star1
+	>$ turn_to satellite0 planet10 star0
+	>$ turn_to satellite3 star4 groundstation3
+	>$ turn_to satellite1 groundstation3 star4
+	>$ switch_on instrument2 satellite1
+	>$ calibrate satellite1 instrument2 groundstation3
+	>$ turn_to satellite1 star6 groundstation3
+	>$ take_image satellite1 star6 instrument2 infrared0
+	>$ turn_to satellite1 planet10 star6
+	>$ take_image satellite1 planet10 instrument2 image2
+	>$ turn_to satellite1 star11 planet10
+	>$ take_image satellite1 star11 instrument2 image2
+	>$ switch_on instrument7 satellite3
+	>$ calibrate satellite3 instrument7 star4
+	>$ turn_to satellite3 star7 star4
+	>$ take_image satellite3 star7 instrument7 image4
+	>$ turn_to satellite3 phenomenon13 star7
+	>$ take_image satellite3 phenomenon13 instrument7 image4
+	>$ turn_to satellite3 phenomenon14 phenomenon13
+	>$ take_image satellite3 phenomenon14 instrument7 image4
 
 	># Achieved Landmarks in Observations: 
-		[[open place_4_6]]
+		[[have_image star7 image4], [pointing satellite1 star4], [pointing satellite3 groundstation3], [have_image star11 image2], [pointing satellite2 star1]]
 
-	+> Amount of Fact Landmarks: 5.0
-	+> Achieved Fact Landmarks: 1.0
-	+> Percentage: 0.2
-
----> Goal: (and (at-robot place_5_9) )
+---> Goal: (and (have_image star7 image2)  (have_image planet10 image2)  (have_image star6 infrared0)  (have_image star7 image4)  (pointing satellite2 planet5)  (have_image phenomenon14 image2)  (pointing satellite1 planet9)  (pointing satellite3 planet10)  (have_image phenomenon8 image4) )
 		 #> Ordered Landmarks: 
-		 # at-robot place_5_9 -> [[open place_5_6], [at-robot place_5_6, open place_5_7], [open place_5_8, at-robot place_5_7], [open place_5_9, at-robot place_5_8], [at-robot place_5_9]]
+		 # have_image star7 image2 -> [[have_image star7 image2]]
+		 # have_image star6 infrared0 -> [[have_image star6 infrared0]]
+		 # have_image planet10 image2 -> [[pointing satellite4 planet10], [have_image planet10 image2]]
+		 # have_image star7 image4 -> [[have_image star7 image4]]
+		 # pointing satellite2 planet5 -> [[pointing satellite2 star1], [pointing satellite2 planet5]]
+		 # have_image phenomenon14 image2 -> [[have_image phenomenon14 image2]]
+		 # pointing satellite1 planet9 -> [[pointing satellite1 star4], [pointing satellite1 planet9]]
+		 # have_image phenomenon8 image4 -> [[have_image phenomenon8 image4]]
+		 # pointing satellite3 planet10 -> [[pointing satellite3 groundstation3], [pointing satellite3 planet10]]
 
-	>$ move place_2_0 place_3_0
-	>$ move place_3_0 place_4_0
-	>$ move place_5_0 place_6_0
-	>$ move place_7_1 place_7_2
-	>$ move place_7_2 place_7_3
-	>$ move place_7_3 place_7_4
-	>$ move place_7_4 place_7_5
-	>$ move place_7_5 place_7_6
+	>$ turn_to satellite4 planet5 planet10
+	>$ turn_to satellite2 planet9 star1
+	>$ turn_to satellite0 planet10 star0
+	>$ turn_to satellite3 star4 groundstation3
+	>$ turn_to satellite1 groundstation3 star4
+	>$ switch_on instrument2 satellite1
+	>$ calibrate satellite1 instrument2 groundstation3
+	>$ turn_to satellite1 star6 groundstation3
+	>$ take_image satellite1 star6 instrument2 infrared0
+	>$ turn_to satellite1 planet10 star6
+	>$ take_image satellite1 planet10 instrument2 image2
+	>$ turn_to satellite1 star11 planet10
+	>$ take_image satellite1 star11 instrument2 image2
+	>$ switch_on instrument7 satellite3
+	>$ calibrate satellite3 instrument7 star4
+	>$ turn_to satellite3 star7 star4
+	>$ take_image satellite3 star7 instrument7 image4
+	>$ turn_to satellite3 phenomenon13 star7
+	>$ take_image satellite3 phenomenon13 instrument7 image4
+	>$ turn_to satellite3 phenomenon14 phenomenon13
+	>$ take_image satellite3 phenomenon14 instrument7 image4
 
 	># Achieved Landmarks in Observations: 
-		[[open place_5_6]]
+		[[have_image star6 infrared0], [have_image planet10 image2], [have_image star7 image4], [pointing satellite1 star4], [pointing satellite3 groundstation3], [pointing satellite2 star1], [pointing satellite4 planet10]]
 
-	+> Amount of Fact Landmarks: 5.0
-	+> Achieved Fact Landmarks: 1.0
-	+> Percentage: 0.2
-
----> Goal: (and (at-robot place_6_9) )
+---> Goal: (and (have_image planet10 image2)  (have_image star6 infrared0)  (pointing satellite4 planet5)  (have_image star7 image4)  (have_image phenomenon13 image4)  (have_image phenomenon14 image4)  (pointing satellite0 planet10)  (have_image star11 image2)  (pointing satellite2 planet9) )
 		 #> Ordered Landmarks: 
-		 # at-robot place_6_9 -> [[open place_6_7], [open place_6_8, at-robot place_6_7], [open place_6_9, at-robot place_6_8], [at-robot place_6_9]]
+		 # have_image star6 infrared0 -> [[have_image star6 infrared0]]
+		 # have_image planet10 image2 -> [[pointing satellite4 planet10], [have_image planet10 image2]]
+		 # have_image phenomenon13 image4 -> [[have_image phenomenon13 image4]]
+		 # pointing satellite4 planet5 -> [[pointing satellite4 planet10], [pointing satellite4 planet5]]
+		 # have_image star7 image4 -> [[have_image star7 image4]]
+		 # have_image phenomenon14 image4 -> [[have_image phenomenon14 image4]]
+		 # have_image star11 image2 -> [[have_image star11 image2]]
+		 # pointing satellite0 planet10 -> [[pointing satellite0 star0], [pointing satellite0 planet10]]
+		 # pointing satellite2 planet9 -> [[pointing satellite2 star1], [pointing satellite2 planet9]]
 
-	>$ move place_2_0 place_3_0
-	>$ move place_3_0 place_4_0
-	>$ move place_5_0 place_6_0
-	>$ move place_7_1 place_7_2
-	>$ move place_7_2 place_7_3
-	>$ move place_7_3 place_7_4
-	>$ move place_7_4 place_7_5
-	>$ move place_7_5 place_7_6
+	>$ turn_to satellite4 planet5 planet10
+	>$ turn_to satellite2 planet9 star1
+	>$ turn_to satellite0 planet10 star0
+	>$ turn_to satellite3 star4 groundstation3
+	>$ turn_to satellite1 groundstation3 star4
+	>$ switch_on instrument2 satellite1
+	>$ calibrate satellite1 instrument2 groundstation3
+	>$ turn_to satellite1 star6 groundstation3
+	>$ take_image satellite1 star6 instrument2 infrared0
+	>$ turn_to satellite1 planet10 star6
+	>$ take_image satellite1 planet10 instrument2 image2
+	>$ turn_to satellite1 star11 planet10
+	>$ take_image satellite1 star11 instrument2 image2
+	>$ switch_on instrument7 satellite3
+	>$ calibrate satellite3 instrument7 star4
+	>$ turn_to satellite3 star7 star4
+	>$ take_image satellite3 star7 instrument7 image4
+	>$ turn_to satellite3 phenomenon13 star7
+	>$ take_image satellite3 phenomenon13 instrument7 image4
+	>$ turn_to satellite3 phenomenon14 phenomenon13
+	>$ take_image satellite3 phenomenon14 instrument7 image4
 
 	># Achieved Landmarks in Observations: 
-		[[open place_6_7]]
+		[[have_image star6 infrared0], [have_image planet10 image2], [pointing satellite4 planet5], [have_image star7 image4], [have_image phenomenon13 image4], [pointing satellite0 star0], [have_image phenomenon14 image4], [pointing satellite0 planet10], [have_image star11 image2], [pointing satellite2 planet9], [pointing satellite2 star1], [pointing satellite4 planet10]]
 
-	+> Amount of Fact Landmarks: 4.0
-	+> Achieved Fact Landmarks: 1.0
-	+> Percentage: 0.25
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$ Landmark Uniqueness Heuristic $$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
----> Goal: (and (at-robot place_7_9) )
-		 #> Ordered Landmarks: 
-		 # at-robot place_7_9 -> [[open place_7_7], [open place_7_8, at-robot place_7_7], [open place_7_9, at-robot place_7_8], [at-robot place_7_9]]
+---> Goal: (and (have_image star6 image2)  (have_image star16 infrared3)  (have_image star7 image4)  (have_image phenomenon13 image4)  (pointing satellite3 planet5)  (have_image phenomenon14 image4)  (pointing satellite4 planet9)  (have_image planet5 image4)  (pointing satellite2 planet10) )
+[have_image star7 image4] = (0.16666667)
+[have_image phenomenon13 image4] = (0.5)
+[have_image phenomenon14 image4] = (0.33333334)
+[pointing satellite3 groundstation3] = (0.16666667)
+[pointing satellite2 star1] = (0.2)
+[pointing satellite4 planet10] = (0.16666667)
 
-	>$ move place_2_0 place_3_0
-	>$ move place_3_0 place_4_0
-	>$ move place_5_0 place_6_0
-	>$ move place_7_1 place_7_2
-	>$ move place_7_2 place_7_3
-	>$ move place_7_3 place_7_4
-	>$ move place_7_4 place_7_5
-	>$ move place_7_5 place_7_6
+	$$$$> Heuristic Value = 0.26
+		1.5333333 / 6.033333
 
-	># Achieved Landmarks in Observations: 
-		[[open place_7_7]]
+---> Goal: (and (have_image star7 image2)  (have_image phenomenon8 image2)  (have_image star15 infrared0)  (have_image star7 image4)  (pointing satellite3 planet5)  (pointing satellite4 planet9)  (have_image planet5 image2)  (pointing satellite2 planet10)  (have_image phenomenon8 image4) )
+[have_image star7 image4] = (0.16666667)
+[pointing satellite3 groundstation3] = (0.16666667)
+[pointing satellite2 star1] = (0.2)
+[pointing satellite4 planet10] = (0.16666667)
 
-	+> Amount of Fact Landmarks: 4.0
-	+> Achieved Fact Landmarks: 1.0
-	+> Percentage: 0.25
+	$$$$> Heuristic Value = 0.14
+		0.70000005 / 5.366667
 
----> Goal: (and (at-robot place_8_9) )
-		 #> Ordered Landmarks: 
-		 # at-robot place_8_9 -> [[open place_8_8], [at-robot place_8_8, open place_8_9], [at-robot place_8_9]]
+---> Goal: (and (have_image planet9 image4)  (pointing satellite4 planet5)  (have_image star7 image4)  (have_image star12 infrared3)  (have_image phenomenon14 image4)  (pointing satellite3 planet9)  (pointing satellite1 planet10)  (have_image star15 image2) )
+[pointing satellite4 planet5] = (0.33333334)
+[have_image star7 image4] = (0.16666667)
+[pointing satellite1 star4] = (0.25)
+[have_image phenomenon14 image4] = (0.33333334)
+[pointing satellite3 groundstation3] = (0.16666667)
+[pointing satellite1 planet10] = (0.5)
+[pointing satellite4 planet10] = (0.16666667)
 
-	>$ move place_2_0 place_3_0
-	>$ move place_3_0 place_4_0
-	>$ move place_5_0 place_6_0
-	>$ move place_7_1 place_7_2
-	>$ move place_7_2 place_7_3
-	>$ move place_7_3 place_7_4
-	>$ move place_7_4 place_7_5
-	>$ move place_7_5 place_7_6
+	$$$$> Heuristic Value = 0.36
+		1.9166666 / 5.4166665
 
-	># Achieved Landmarks in Observations: 
-		[[open place_8_8]]
+---> Goal: (and (have_image star7 image2)  (pointing satellite4 planet5)  (have_image star11 infrared0)  (have_image phenomenon13 image2)  (pointing satellite3 planet9)  (have_image star2 image4)  (pointing satellite1 planet10)  (have_image phenomenon8 image4)  (have_image planet9 image2) )
+[pointing satellite4 planet5] = (0.33333334)
+[pointing satellite1 star4] = (0.25)
+[pointing satellite3 groundstation3] = (0.16666667)
+[pointing satellite1 planet10] = (0.5)
+[pointing satellite4 planet10] = (0.16666667)
 
-	+> Amount of Fact Landmarks: 3.0
-	+> Achieved Fact Landmarks: 1.0
-	+> Percentage: 0.33333334
+	$$$$> Heuristic Value = 0.22
+		1.4166666 / 6.5833335
 
----> Goal: (and (at-robot place_9_9) )
-		 #> Ordered Landmarks: 
-		 # at-robot place_9_9 -> [[open place_9_8], [at-robot place_9_8, open place_9_9], [at-robot place_9_9]]
+---> Goal: (and (have_image star7 infrared3)  (have_image phenomenon8 image2)  (have_image star7 image4)  (have_image planet10 image4)  (pointing satellite2 planet5)  (have_image star11 image2)  (have_image phenomenon14 image2)  (pointing satellite1 planet9)  (pointing satellite3 planet10) )
+[have_image star7 image4] = (0.16666667)
+[pointing satellite1 star4] = (0.25)
+[pointing satellite3 groundstation3] = (0.16666667)
+[have_image star11 image2] = (0.5)
+[pointing satellite2 star1] = (0.2)
 
-	>$ move place_2_0 place_3_0
-	>$ move place_3_0 place_4_0
-	>$ move place_5_0 place_6_0
-	>$ move place_7_1 place_7_2
-	>$ move place_7_2 place_7_3
-	>$ move place_7_3 place_7_4
-	>$ move place_7_4 place_7_5
-	>$ move place_7_5 place_7_6
+	$$$$> Heuristic Value = 0.19
+		1.2833334 / 6.783333
 
-	># Achieved Landmarks in Observations: 
-		[[open place_9_8]]
+---> Goal: (and (have_image star7 image2)  (have_image planet10 image2)  (have_image star6 infrared0)  (have_image star7 image4)  (pointing satellite2 planet5)  (have_image phenomenon14 image2)  (pointing satellite1 planet9)  (pointing satellite3 planet10)  (have_image phenomenon8 image4) )
+[have_image star6 infrared0] = (0.5)
+[have_image planet10 image2] = (0.5)
+[have_image star7 image4] = (0.16666667)
+[pointing satellite1 star4] = (0.25)
+[pointing satellite3 groundstation3] = (0.16666667)
+[pointing satellite2 star1] = (0.2)
+[pointing satellite4 planet10] = (0.16666667)
 
-	+> Amount of Fact Landmarks: 3.0
-	+> Achieved Fact Landmarks: 1.0
-	+> Percentage: 0.33333334
+	$$$$> Heuristic Value = 0.43
+		1.9499999 / 4.6166663
 
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-$$$$$$$$$$ Filtered Goals $$$$$$$$$$$$
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+---> Goal: (and (have_image planet10 image2)  (have_image star6 infrared0)  (pointing satellite4 planet5)  (have_image star7 image4)  (have_image phenomenon13 image4)  (have_image phenomenon14 image4)  (pointing satellite0 planet10)  (have_image star11 image2)  (pointing satellite2 planet9) )
+[have_image star6 infrared0] = (0.5)
+[have_image planet10 image2] = (0.5)
+[pointing satellite4 planet5] = (0.33333334)
+[have_image star7 image4] = (0.16666667)
+[have_image phenomenon13 image4] = (0.5)
+[pointing satellite0 star0] = (1.0)
+[have_image phenomenon14 image4] = (0.33333334)
+[pointing satellite0 planet10] = (1.0)
+[have_image star11 image2] = (0.5)
+[pointing satellite2 planet9] = (1.0)
+[pointing satellite2 star1] = (0.2)
+[pointing satellite4 planet10] = (0.16666667)
 
-$> (and (at-robot place_0_9) ): 0.33333334
-$> (and (at-robot place_1_9) ): 0.33333334
-$> (and (at-robot place_2_9) ): 0.33333334
-$> (and (at-robot place_3_9) ): 0.33333334
-$> (and (at-robot place_4_9) ): 0.2
-$> (and (at-robot place_5_9) ): 0.2
-$> (and (at-robot place_6_9) ): 0.25
-$> (and (at-robot place_7_9) ): 0.25
-$> (and (at-robot place_8_9) ): 0.33333334
-$> (and (at-robot place_9_9) ): 0.33333334
+	$$$$> Heuristic Value = 1.0
+		6.1999993 / 6.1999993
 
-real	0m3,212s
-user	0m1,960s
-sys	0m0,426s
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$> Recognized goal(s) within the threshold 30.0: 
+$> (and (have_image star6 image2)  (have_image star16 infrared3)  (have_image star7 image4)  (have_image phenomenon13 image4)  (pointing satellite3 planet5)  (have_image phenomenon14 image4)  (pointing satellite4 planet9)  (have_image planet5 image4)  (pointing satellite2 planet10) ): 0.26
+$> (and (have_image star7 image2)  (have_image phenomenon8 image2)  (have_image star15 infrared0)  (have_image star7 image4)  (pointing satellite3 planet5)  (pointing satellite4 planet9)  (have_image planet5 image2)  (pointing satellite2 planet10)  (have_image phenomenon8 image4) ): 0.14
+$> (and (have_image planet9 image4)  (pointing satellite4 planet5)  (have_image star7 image4)  (have_image star12 infrared3)  (have_image phenomenon14 image4)  (pointing satellite3 planet9)  (pointing satellite1 planet10)  (have_image star15 image2) ): 0.36
+$> (and (have_image star7 image2)  (pointing satellite4 planet5)  (have_image star11 infrared0)  (have_image phenomenon13 image2)  (pointing satellite3 planet9)  (have_image star2 image4)  (pointing satellite1 planet10)  (have_image phenomenon8 image4)  (have_image planet9 image2) ): 0.22
+$> (and (have_image star7 infrared3)  (have_image phenomenon8 image2)  (have_image star7 image4)  (have_image planet10 image4)  (pointing satellite2 planet5)  (have_image star11 image2)  (have_image phenomenon14 image2)  (pointing satellite1 planet9)  (pointing satellite3 planet10) ): 0.19
+$> (and (have_image star7 image2)  (have_image planet10 image2)  (have_image star6 infrared0)  (have_image star7 image4)  (pointing satellite2 planet5)  (have_image phenomenon14 image2)  (pointing satellite1 planet9)  (pointing satellite3 planet10)  (have_image phenomenon8 image4) ): 0.43
+$> (and (have_image planet10 image2)  (have_image star6 infrared0)  (pointing satellite4 planet5)  (have_image star7 image4)  (have_image phenomenon13 image4)  (have_image phenomenon14 image4)  (pointing satellite0 planet10)  (have_image star11 image2)  (pointing satellite2 planet9) ): 1.0
+
+<?> Correct goal: (and (have_image planet10 image2)  (have_image star6 infrared0)  (pointing satellite4 planet5)  (have_image star7 image4)  (have_image phenomenon13 image4)  (have_image phenomenon14 image4)  (pointing satellite0 planet10)  (have_image star11 image2)  (pointing satellite2 planet9) )
+<?> Was the correct goal recognized correctly? true
+
+real	0m3.554s
+user	0m7.320s
+sys	0m0.472s

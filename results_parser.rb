@@ -54,9 +54,9 @@ def get_heuristic_correctness_and_time
 end
 
 def all_results
-    dataset_path = "/home/kingusmao/grupo/goal-plan-recognition-dataset"
-    res_path = "/home/kingusmao/grupo/results-parser/res.txt"
-    jar_path = "/home/kingusmao/grupo/Landmark-Based-GoalRecognition/goalrecognizer1.1.jar"
+    dataset_path = "/home/kin/grupo/goal-plan-recognition-dataset"
+    res_path = "/home/kin/grupo/results-parser/res.txt"
+    jar_path = "/home/kin/grupo/Landmark-Based-GoalRecognition/goalrecognizer1.1.jar"
     java_path = "/usr/bin/java"
     run_path = "./run.sh"
     thresholds = %w(0 10 20 30).freeze
@@ -198,7 +198,7 @@ end
 
 def analyse
     results = all_results
-    output_path = "/home/kingusmao/grupo/results-parser/results.json"
+    output_path = "/home/kin/grupo/results-parser/results.json"
     File.write(output_path, JSON.pretty_generate(results))
 end
 
