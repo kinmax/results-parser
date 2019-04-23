@@ -5,7 +5,8 @@ file_path = File.join(File.dirname(__FILE__), 'results.json')
 file = File.open(file_path, 'r')
 raw = file.read
 results = JSON.parse(raw)
-output_path = "/home/kingusmao/grupo/results-parser/table.txt"
+results = results.sort.to_h
+output_path = "/home/kin/grupo/results-parser/table.txt"
 
 table = "\\begin{table}[h]
 \\centering
